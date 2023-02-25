@@ -1,5 +1,5 @@
 <head>
-<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="../resources/css/index.css">
 </head>
 <div class="content">
 

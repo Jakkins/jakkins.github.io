@@ -7,7 +7,7 @@
   font-family: "Consolas", "Courier New", "Lucida Console", "Menlo", "Monaco",
     "Liberation Mono", "Ubuntu Mono", "DejaVu Sans Mono", "Roboto Mono",
     "Noto Mono", "Inconsolata", "Source Code Pro", "SF Mono", monospace;
-    font-size: 3vh;
+  font-size: 3vh;
 }
 
 html, body  {
@@ -42,4 +42,23 @@ body {
 
 .content a:hover {
   background-color: green;
+}
+
+/* CODE */
+.vscode-light pre {
+  line-height: 0.7;
+
+  background-color: rgb(39, 39, 39);
+}
+
+code {
+  font-size: 16px;
+  background-color: rgba(0, 128, 0, 0);
+}
+
+.vscode-light .hljs-comment, .vscode-light .hljs-quote, .vscode-light .hljs-number, .vscode-light .hljs-class, .vscode-light .hljs-variable {
+  font-size: 16px;
+  font-style: normal;
+  background-color: rgba(0, 128, 0, 0);
+  color: rgb(0, 138, 0);
 }

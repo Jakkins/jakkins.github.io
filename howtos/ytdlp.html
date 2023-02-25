@@ -2,7 +2,7 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>you&apos;ll get some info</title>
         <style>
 /* From extension vscode.github */
 /*---------------------------------------------------------------------------------------------
@@ -40,21 +40,29 @@
     </head>
     <body class="vscode-body vscode-light">
         <head>
-<link rel="stylesheet" href="./resources/css/index.css">
+<link rel="stylesheet" href="../resources/css/index.css">
 </head>
 <div class="content">
-<p><a href="https://plsamu.github.io" target="_blank">sam (qui ci stanno le cose &quot;serie&quot; LOL)</a>
-<a href="https://sp0.gitbook.io/main" target="_blank">it's a mad world, be prepared</a>
-<a href="./pages/magicdoor.html" target="_blank">magic door</a></p>
+<ol>
+<li>download the yt-dlp from here: <a href="https://github.com/yt-dlp/yt-dlp" target="_blank">yt-dlp</a></li>
+<li>follow the commands inside the square</li>
+</ol>
+<pre><code class="language-bash">yt-dlp -F https://www.youtube.com/watch?v=fXJc2NYwHjw
+
+<span class="hljs-comment"># you&#x27;ll get some info</span>
+<span class="hljs-comment">#</span>
+<span class="hljs-comment"># ID  EXT   RESOLUTION FPS CH │   FILESIZE  TBR PROTO │ VCODEC       VBR ACODEC      ABR ASR MORE INFO</span>
+<span class="hljs-comment"># ────────────────────────────────────────────────────────────────────────────────────────────────────────────</span>
+<span class="hljs-comment"># 140 m4a   audio only      2 │   14.24MiB 127k https │ audio only       mp4a.40.2  127k 44k medium, m4a_dash</span>
+<span class="hljs-comment"># 251 webm  audio only      2 │   16.72MiB 149k https │ audio only       opus       149k 48k medium, webm_dash</span>
+
+<span class="hljs-comment"># to download use the ID</span>
+yt-dlp -f 140 https://www.youtube.com/watch?v=9BFOEqAULpo
+
+</code></pre>
+<p>DONE</p>
 </div>
-<audio controls="true" autoplay="true" id="myaudio">
-  <source src="resources/musics/release.m4a" type="audio/mp3">
-Your browser does not support the audio element.
-</audio>
-<script>
-  var audio = document.getElementById("myaudio");
-  audio.volume = 0.01;
-</script>
+
         
         
     </body>
