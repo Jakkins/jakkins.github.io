@@ -1,0 +1,28 @@
+<head>
+  <link rel="stylesheet" href="./resources/css/index.css" />
+</head>
+
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
+></script>
+<script type="text/javascript" src="./utils.js"></script>
+
+<body>
+  <div>
+    Input a password
+    <input type="text" id="password" name="password" placeholder="password" />
+  </div>
+  <div>
+    <button type="button" onclick="createKey()">Create key!</button>
+    <div id="key"></div>
+  </div>
+  <div>
+    <button type="button">Encrypt</button>
+    <div id="encrypt"></div>
+  </div>
+  <div>
+    <button type="button">Decrypt</button>
+    <div id="decrypt"></div>
+  </div>
+</body>
