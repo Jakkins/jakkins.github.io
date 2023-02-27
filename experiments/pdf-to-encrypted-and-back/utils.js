@@ -93,9 +93,7 @@ async function encrypt() {
 
 async function decrypt() {
   var encrypted_hex_text = await encrypt();
-  console.log(encrypted_hex_text);
   var encrypted_bin = fromHexToIntArr(encrypted_hex_text);
-  console.log(encrypted_bin);
   var user_password_hashed = await getUserPasswordHashed();
   var crypto_key_obj = await getCryptoKeyFromStr(user_password_hashed);
   var sym_key = await deriveSymKeyFromStrCryptoObj(crypto_key_obj);
@@ -106,8 +104,6 @@ async function decrypt() {
     sym_key,
     encrypted_bin
   );
-  console.log(text_bin);
-  var text = new TextDecoder().decode(text_bin);
-  console.log(text);
-  document.getElementById("decrypt").innerHTML += text;
+  var text = arrayBufToStr(text_bin);
+  document.getElementById("decrypt").innerText = text;
 }
