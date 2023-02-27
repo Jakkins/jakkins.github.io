@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <head>
   <link rel="stylesheet" href="./resources/css/index.css" />
 </head>
@@ -14,15 +15,16 @@
     <input type="text" id="password" name="password" placeholder="password" />
   </div>
   <div>
-    <button type="button" onclick="createKey()">Create key!</button>
+    <button type="button" onclick="getUserPasswordHashed()">Create key!</button>
     <div id="key"></div>
   </div>
   <div>
-    <button type="button">Encrypt</button>
+    <input type="text" id="text_to_enc" name="text_to_enc" placeholder="text_to_enc" />
+    <button type="button" onclick="encrypt()">Encrypt</button>
     <div id="encrypt"></div>
   </div>
   <div>
-    <button type="button">Decrypt</button>
+    <button type="button" onclick="decrypt()">Decrypt</button>
     <div id="decrypt"></div>
   </div>
 </body>

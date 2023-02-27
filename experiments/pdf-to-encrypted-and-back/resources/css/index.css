@@ -5,4 +5,5 @@ body {
 
 div {
   margin-bottom: 15px;
+  word-wrap: break-word;
 }
