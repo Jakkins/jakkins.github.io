@@ -1,0 +1,6 @@
+site_name: The Search for a Dir Tree
+
+theme:
+  name: readthedocs
+  titles_only: true
+  navigation_depth: 2

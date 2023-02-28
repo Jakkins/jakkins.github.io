@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% for path in config.extra_css %}
+    <link href="{{ path|url }}" rel="stylesheet" />
+    {% endfor %}
+
+    <title>
+      {% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}
+    </title>
+  </head>
+
+  <body>
+    {{ page.content }}
+  </body>
+</html>
