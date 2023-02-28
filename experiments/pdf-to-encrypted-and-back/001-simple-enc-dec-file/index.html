@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- <head>
+  <link rel="stylesheet" href="./resources/css/index.css" />
+</head> -->
+
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"
+></script>
+<!-- <script type="text/javascript" src="./utils.js"></script>
+ -->
+<body>
+  <div>
+    Get a file
+    <input
+      type="file"
+      id="file_input_el"
+      name="file_input_el"
+      accept="text/*,image/*,video/*,.pdf"
+    />
+  </div>
+</body>
+
+<script>
+  async function readFileAsDataURL(file) {
+    let result_base64 = await new Promise((resolve) => {
+      let fileReader = new FileReader();
+      fileReader.onload = (e) => resolve(fileReader.result);
+      fileReader.readAsDataURL(file);
+    });
+    return result_base64; // aGV5IHRoZXJl...
+  }
+
+  const file_input_el = document.getElementById("file_input_el");
+  file_input_el.addEventListener(
+    "change",
+    async (event) => {
+      const file = file_input_el.files[0];
+      const file_content = await readFileAsDataURL(file);
+      console.log(file_content);
+    },
+    false
+  );
+</script>
