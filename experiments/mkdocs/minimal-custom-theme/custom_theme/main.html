@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	{% for path in config.extra_css %}
+	<link href="{{ path|url }}" rel="stylesheet" />
+	{% endfor %}
+
+	{% block libs %}
+	<script src="{{ base_url }}/highlight/highlight.min.js"></script>
+	{% endblock %}
+
+	<script>
+		document.addEventListener('DOMContentLoaded', (event) => {
+			// before css
+			hljs.highlightAll();
+		});
+		document.addEventListener("load", function () {
+			// after images and css
+		});
+	</script>
+
+	<title>
+		{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}
+	</title>
+</head>
+
+<body>
+	{{ page.content }}
+</body>
+
+</html>
