@@ -183,3 +183,169 @@ code {
   - download
   - change the default.css file
 - https://squidfunk.github.io/mkdocs-material/getting-started/
+
+## highlightjs.js
+
+Download and unzip.
+
+### dir tree
+
+```txt
+mkdocs.yml
+docs
+custom_theme/
+    main.html
+		css
+			index.css
+		highlight
+			styles
+				default.min.css
+			highlight.min.js
+```
+
+### mkdocs.yml
+
+```yaml
+site_name: Minimal Custom Dir Tree
+use_directory_urls: true
+
+theme:
+  name: null
+  custom_dir: "custom_theme/"
+  palette:
+    primary: css/index.css
+
+extra_css:
+  - css/index.css
+  - highlight/styles/default.min.css
+
+extra_javascript:
+  - js/index.js
+  - highlight/highlight.min.js
+```
+
+### main.html
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    {% for path in config.extra_css %}
+    <link href="{{ path|url }}" rel="stylesheet" />
+    {% endfor %}
+    <!-- -->
+    {% block libs %}
+    <link
+      rel="stylesheet"
+      href="{{ base_url }}/highlight/styles/default.min.css"
+    />
+    <script src="{{ base_url }}/highlight/highlight.min.js"></script>
+    <script src="{{ base_url }}/js/index.js"></script>
+    {% endblock %}
+
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        // before css
+        hljs.highlightAll();
+      });
+      document.addEventListener("load", function () {
+        // after images and css
+      });
+    </script>
+
+    <title>
+      {% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}
+    </title>
+  </head>
+
+  <body>
+    {{ page.content }}
+  </body>
+</html>
+```
+
+### modify default.min.css
+
+```css
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+}
+code.hljs {
+  padding: 3px 5px;
+}
+.hljs {
+  background: #1c1c1c;
+  color: #d3d3d3;
+}
+.hljs-comment {
+  color: #00a321;
+}
+.hljs-punctuation,
+.hljs-tag {
+  color: rgba(120, 105, 255, 0.907);
+}
+.hljs-tag .hljs-attr,
+.hljs-tag .hljs-name {
+  color: #0090dd;
+}
+.hljs-attribute,
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-name,
+.hljs-selector-tag {
+  font-weight: 700;
+}
+.hljs-addition {
+  color: rgba(40, 255, 40, 0.792);
+}
+.hljs-deletion {
+  color: rgba(255, 40, 40, 0.789);
+}
+.hljs-number,
+.hljs-quote,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-string,
+.hljs-template-tag,
+.hljs-type {
+  color: rgb(0, 227, 4);
+}
+.hljs-section,
+.hljs-title {
+  color: rgba(241, 209, 0, 0.932);
+  font-weight: 700;
+}
+.hljs-link,
+.hljs-operator,
+.hljs-regexp,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-symbol,
+.hljs-template-variable,
+.hljs-variable {
+  color: #ab5656;
+}
+.hljs-literal {
+  color: #695;
+}
+.hljs-built_in,
+.hljs-bullet,
+.hljs-code {
+  color: #397300;
+}
+.hljs-meta {
+  color: #1f7199;
+}
+.hljs-meta .hljs-string {
+  color: #38a;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: 700;
+}
+```

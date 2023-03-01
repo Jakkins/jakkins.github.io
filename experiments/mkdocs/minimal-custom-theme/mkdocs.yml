@@ -9,6 +9,8 @@ theme:
 
 extra_css:
   - css/index.css
+  - highlight/styles/default.min.css
 
 extra_javascript:
+  - js/index.js
   - highlight/highlight.min.js
