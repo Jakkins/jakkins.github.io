@@ -8,7 +8,7 @@
     "Liberation Mono", "Ubuntu Mono", "DejaVu Sans Mono", "Roboto Mono",
     "Noto Mono", "Inconsolata", "Source Code Pro", "SF Mono", monospace;
   line-height: 1.1;
-  font-size: 16px;
+  font-size: 18px;
   font-style: normal;
 }
 
@@ -64,6 +64,8 @@ ul {
 pre {
   background-color: rgba(255, 255, 255, 0.152);
   padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 code {

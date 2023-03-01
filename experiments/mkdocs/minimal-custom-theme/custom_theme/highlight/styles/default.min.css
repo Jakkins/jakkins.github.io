@@ -7,6 +7,12 @@
   License: see project LICENSE
   Touched: 2021
 */
+code,
+code * {
+  font-weight: lighter, normal;
+  line-height: 1.5;
+  font-size: 14px;
+}
 pre code.hljs {
   display: block;
   overflow-x: auto;
@@ -30,14 +36,6 @@ code.hljs {
 .hljs-tag .hljs-name {
   color: #0090dd;
 }
-.hljs-attribute,
-.hljs-doctag,
-.hljs-keyword,
-.hljs-meta .hljs-keyword,
-.hljs-name,
-.hljs-selector-tag {
-  font-weight: 700;
-}
 .hljs-addition {
   color: rgba(40, 255, 40, 0.792);
 }
@@ -58,6 +56,7 @@ code.hljs {
   color: rgba(241, 209, 0, 0.932);
   font-weight: 700;
 }
+code,
 .hljs-link,
 .hljs-operator,
 .hljs-regexp,
