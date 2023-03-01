@@ -61,3 +61,15 @@ code * {
 ```
 
 ### Now
+
+ChatGPT said to me that this type of code:
+
+```txt
+{% extends "base.html" %}
+
+{% block htmltitle %}
+  <title>Lorem ipsum dolor sit amet</title>
+{% endblock %}
+```
+
+Is similar to, or is, Django templating language.
