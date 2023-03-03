@@ -1,5 +1,7 @@
 # MCDT (this is the page.title)
 
+> MkDocs uses Jinja2 as its default templating engine.
+
 [source](https://www.mkdocs.org/dev-guide/themes/#creating-a-custom-theme)
 
 ## dir tree
@@ -46,4 +48,4 @@ theme:
 
 <img title="how cute <3" src="./resources/images/init.png" />
 
-## > [Part 2 - Add some css](part2-add-some-css.md)
+# > [Part 2 - Add some css](part2-add-some-css.md)

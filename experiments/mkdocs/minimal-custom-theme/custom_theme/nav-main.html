@@ -1,0 +1,11 @@
+<nav class="nav-main">
+	{%- block site_nav %}
+	<ul>
+		{%- set navlevel = 1 %}
+		{%- for nav_item in nav %}
+		<!-- {% include'nav-item.html' %} -->
+		<li><span>{{ nav_item.title }}</span></li>
+		{%- endfor %}
+	</ul>
+	{%- endblock %}
+</nav>
