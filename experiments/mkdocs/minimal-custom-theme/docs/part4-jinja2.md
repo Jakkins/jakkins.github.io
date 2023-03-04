@@ -123,18 +123,24 @@ docs
   dir1
     index2.md
       (# Part1)
+  dir2
+    image.jpg
 ```
 
 ```html
+<script>
+	console.log("{{ nav_item }}")
+</script>
+
 {% if nav_item.is_page  %}
 <li>
-	<a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+	<a href="{{ base_url }}/{{ nav_item.url }}">{{ nav_item.title }}</a>
 </li>
 {% endif %}
 
 {% if nav_item.is_section %}
 <li>
-	<a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+	<span>{{ nav_item.title }}</span>
 </li>
 {% endif %}
 
@@ -159,3 +165,5 @@ docs
 - dir1
   - Part1
 ```
+
+> Only directories with md file inside are taken into consideration.
