@@ -1,0 +1,42 @@
+<script>
+	console.log("{{ nav_item }}")
+</script>
+
+{% if nav_item.url %}
+<li>
+	<a href="{{ nav_item.url }}">url --- {{ nav_item.title }}</a>
+</li>
+{% endif %}
+
+{% if nav_item.is_page  %}
+<li>
+	<a href="{{ nav_item.url }}">page --- {{ nav_item.title }}</a>
+</li>
+{% endif %}
+
+{% if nav_item.is_link %}
+<li>
+	<a href="{{ nav_item.url }}">link --- {{ nav_item.title }}</a>
+</li>
+{% endif %}
+
+{% if nav_item.is_section %}
+<li>
+	<a href="{{ nav_item.url }}">section --- {{ nav_item.title }}</a>
+</li>
+{% endif %}
+
+<!-- if nav_item has children -->
+{%- if nav_item.children %}
+<li>
+	<ul>
+		{%- set navlevel = navlevel + 1 %}
+		{%- for nav_item in nav_item.children %}
+		{% include 'nav-item2.html' %}
+		{%- endfor %}
+		{%- set navlevel = navlevel - 1 %}
+	</ul>
+</li>
+{% endif %}
+
+
