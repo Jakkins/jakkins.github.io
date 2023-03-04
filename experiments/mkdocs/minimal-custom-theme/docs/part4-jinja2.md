@@ -89,9 +89,73 @@ Also
 {% endif %}
 ```
 
-#### Legenda
+# Legenda
 
 ```txt
 page    : the title in the first line of every md file
 section : the directory name inside docs dir
+```
+
+> The order is by filename and not by title!
+> 
+> This is good because you can name every file like:
+> 
+> - 000.md
+> 
+> - 001.md
+> 
+> But you can always change title as you want:
+> 
+> - 000.md
+> 
+>     - Home
+> 
+> - 0001.md
+> 
+>     - part1 
+
+## Example
+
+```txt
+docs
+  index.md
+    (# Home)
+  dir1
+    index2.md
+      (# Part1)
+```
+
+```html
+{% if nav_item.is_page  %}
+<li>
+	<a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+</li>
+{% endif %}
+
+{% if nav_item.is_section %}
+<li>
+	<a href="{{ nav_item.url }}">{{ nav_item.title }}</a>
+</li>
+{% endif %}
+
+<!-- if nav_item has children -->
+{%- if nav_item.children %}
+<li>
+	<ul>
+		{%- set navlevel = navlevel + 1 %}
+		{%- for nav_item in nav_item.children %}
+		{% include 'nav-item2.html' %}
+		{%- endfor %}
+		{%- set navlevel = navlevel - 1 %}
+	</ul>
+</li>
+{% endif %}
+```
+
+## Results
+
+```html
+- Home
+- dir1
+  - Part1
 ```
