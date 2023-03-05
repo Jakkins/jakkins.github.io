@@ -121,6 +121,7 @@ code {
 }
 
 .section span {
+  /* unclickable span */
   pointer-events: none;
 }
 
@@ -133,12 +134,12 @@ code {
 }
 
 /* hide the items */
-.section.collapsed > .children {
+.section.collapsed + .children {
   display: none;
 }
 
 /* show the items */
-.section > .children {
+.section + .children {
   display: block;
 }
 
