@@ -4,8 +4,6 @@ use_directory_urls: true
 theme:
   name: null
   custom_dir: "custom_theme/"
-  palette:
-    primary: css/index.css
 
 extra_css:
   - css/index.css

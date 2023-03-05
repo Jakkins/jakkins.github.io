@@ -1,9 +1,9 @@
 {%- block site_nav %}
-<nav class="nav-main">
+<nav class="nav">
   <ul>
     {%- set navlevel = 1 %}
     {%- for nav_item in nav %}
-    {% include 'nav-item2.html' %}
+    {% include 'nav/nav-item2.html' %}
     {%- endfor %}
   </ul>
 </nav>

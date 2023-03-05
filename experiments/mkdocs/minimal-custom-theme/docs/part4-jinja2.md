@@ -167,3 +167,5 @@ docs
 ```
 
 > Only directories with md file inside are taken into consideration.
+
+# > [Part 5 - Better style and css](part5-finish-this.md)

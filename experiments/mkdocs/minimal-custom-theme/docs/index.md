@@ -33,7 +33,6 @@ theme:
       {% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}
     </title>
   </head>
-
   <body>
     {{ page.content }}
   </body>

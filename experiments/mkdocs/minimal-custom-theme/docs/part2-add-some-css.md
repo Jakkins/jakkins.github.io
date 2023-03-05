@@ -179,9 +179,12 @@ code {
 
 ### Possibilities
 
+> ***NOTES:***
+> use two tabs for indent the list.
+
 - https://highlightjs.org/download/
-  - download
-  - change the default.css file
+    - download
+    - change the default.css file
 - https://squidfunk.github.io/mkdocs-material/getting-started/
 
 ## highlightjs.js
