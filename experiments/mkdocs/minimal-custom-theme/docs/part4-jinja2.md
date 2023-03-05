@@ -17,7 +17,8 @@ Also
 
 ```html
 <body>
-  {% include 'nav-main.html' %} {{ page.content }}
+  {% include 'nav-main.html' %}
+  {{ page.content }}
 </body>
 ```
 

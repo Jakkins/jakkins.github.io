@@ -97,7 +97,7 @@ theme:
 
 # check other themes
 
-Aaaaaadddd... What the hell is [this](https://github.com/readthedocs/sphinx_rtd_theme/blob/master/sphinx_rtd_theme/layout.html#L164):
+Aaaaaannndddd... What the hell is [this](https://github.com/readthedocs/sphinx_rtd_theme/blob/master/sphinx_rtd_theme/layout.html#L164):
 
 ```html
 {%- block navigation %} {#- Translators: This is an ARIA section label for the
