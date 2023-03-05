@@ -1,4 +1,4 @@
-# Part 2
+# 2 - css to style layout
 
 ## custom_theme
 
@@ -353,4 +353,4 @@ code.hljs {
 }
 ```
 
-# > [Part 3 - Add lateral dir tree](part3-add-lateral-dir-tree.md)
+# > [Part 3 - Add lateral dir tree](./part3-add-lateral-dir-tree.md)

@@ -1,3 +1,7 @@
+/* ------------------------------------------- */
+/* =============== GENERAL CSS =============== */
+/* ------------------------------------------- */
+
 * {
   box-sizing: border-box;
   padding: 0px;
@@ -30,6 +34,8 @@ body {
   }
 
   .content {
+    /* do not remove these css */
+    margin: auto;
     /* if this min-width is black magic, read this: */
     /* https://stackoverflow.com/questions/36230944/prevent-flex-items-from-overflowing-a-container */
     min-width: 0;
@@ -68,10 +74,12 @@ blockquote p strong em {
 }
 
 ul {
-  padding-left: 40px;
+  margin-left: 40px;
 }
 
-/* CODE */
+/* ------------------------------------ */
+/* =============== CODE =============== */
+/* ------------------------------------ */
 pre {
   background-color: rgba(255, 255, 255, 0.152);
   padding: 10px;
@@ -90,4 +98,63 @@ code {
 .vscode-light .hljs-variable {
   background-color: rgba(0, 128, 0, 0);
   color: rgb(0, 138, 0);
+}
+
+/* ----------------------------------- */
+/* =============== NAV =============== */
+/* ----------------------------------- */
+
+.children {
+  list-style: none;
+}
+
+/* 
+  ul > li > ul {
+    display: none;
+  } 
+*/
+
+.section {
+  list-style: none;
+  cursor: pointer;
+  padding: 10px 0px;
+}
+
+.section span {
+  pointer-events: none;
+}
+
+.section::before {
+  content: "-";
+}
+
+.section.collapsed::before {
+  content: "+";
+}
+
+/* hide the items */
+.section.collapsed > .children {
+  display: none;
+}
+
+/* show the items */
+.section > .children {
+  display: block;
+}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.nav-page {
+  padding: 2px 0px;
+}
+
+.nav-page a {
+  text-decoration: none;
 }

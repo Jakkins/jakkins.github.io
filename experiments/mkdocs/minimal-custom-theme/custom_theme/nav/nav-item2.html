@@ -1,29 +1,22 @@
-<script>
-	console.log("{{ nav_item }}")
-</script>
-
 {% if nav_item.is_page  %}
-<li>
+<li class="nav-page">
 	<a href="{{ base_url }}/{{ nav_item.url }}">{{ nav_item.title }}</a>
 </li>
 {% endif %}
 
 {% if nav_item.is_section %}
-<li>
+<li id="section" class="section noselect collapsed">
 	<span>{{ nav_item.title }}</span>
-</li>
-{% endif %}
-
-<!-- if nav_item has children -->
-{%- if nav_item.children %}
-<li>
-	<ul>
-		{%- set navlevel = navlevel + 1 %}
-		{%- for nav_item in nav_item.children %}
-		{% include 'nav/nav-item2.html' %}
-		{%- endfor %}
-		{%- set navlevel = navlevel - 1 %}
-	</ul>
+	<!-- if nav_item has children -->
+	{%- if nav_item.children %}
+		<ul class="children">
+			{%- set navlevel = navlevel + 1 %}
+			{%- for nav_item in nav_item.children %}
+			{% include 'nav/nav-item2.html' %}
+			{%- endfor %}
+			{%- set navlevel = navlevel - 1 %}
+		</ul>
+	{% endif %}
 </li>
 {% endif %}
 

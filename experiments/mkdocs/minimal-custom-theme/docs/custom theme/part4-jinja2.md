@@ -1,4 +1,4 @@
-# Jinja2
+# 4 - Jinja2
 
 <a href="https://palletsprojects.com/p/jinja/" target="_blank">easier start</a> <br>
 <a href="https://jinja.palletsprojects.com/en/latest/" target="_blank">docs</a>
@@ -169,4 +169,4 @@ docs
 
 > Only directories with md file inside are taken into consideration.
 
-# > [Part 5 - Better style and css](part5-finish-this.md)
+# > [Part 5 - Better style and css](./part5-finish-this.md)

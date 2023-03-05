@@ -1,4 +1,4 @@
-# MkDocs css, js, styles and things
+# 5 - MkDocs css, js, styles and things
 
 ## state right now
 
@@ -9,8 +9,9 @@ custom_theme
   main.html
 docs
   index.md
-  part1.md
-  part2.md
+    custom theme
+      part1.md
+      part2.md
   dir1
     index.md
 mkdocs.yml
@@ -29,6 +30,10 @@ theme:
 extra_css:
   - css/index.css
   - highlight/styles/default.min.css
+
+extra_javascript:
+  - js/index.js
+  - highlight/highlight.min.js
 ```
 
 ### main.html
@@ -41,10 +46,15 @@ extra_css:
   {% for path in config.extra_css %}
 	<link href="{{ path|url }}" rel="stylesheet" />
 	{% endfor %}
+  {% block libs %}
+	<link rel="stylesheet" href="{{ base_url }}/highlight/styles/default.min.css">
+	<script src="{{ base_url }}/highlight/highlight.min.js"></script>
+	<script src="{{ base_url }}/js/index.js"></script>
+	{% endblock %}
 </head>
 <body>
-	{% include 'nav-main.html' %}
-	{{ page.content }}
+	{% include 'nav/nav.html' %}
+	{% include 'content/index.html' %}
 </body>
 </html>
 ```

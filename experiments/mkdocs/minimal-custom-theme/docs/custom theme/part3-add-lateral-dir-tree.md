@@ -1,4 +1,4 @@
-# Near a wholesome documentation
+# 3 - Near a wholesome documentation
 
 > **_PROBLEM_**
 >
@@ -159,4 +159,4 @@ Ok... So...
 
 It wasn't written like that .-.
 
-# > [Part 4 - Jinja2](part4-jinja2.md)
+# > [Part 4 - Jinja2](./part4-jinja2.md)
