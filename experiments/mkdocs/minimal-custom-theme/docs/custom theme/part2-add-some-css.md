@@ -353,4 +353,3 @@ code.hljs {
 }
 ```
 
-# > [Part 3 - Add lateral dir tree](./part3-add-lateral-dir-tree.md)

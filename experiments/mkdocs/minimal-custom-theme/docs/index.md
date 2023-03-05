@@ -1,4 +1,4 @@
-# How to create a custom theme
+# 1. How to create a custom theme
 
 > MkDocs uses Jinja2 as its default templating engine.
 
@@ -47,4 +47,3 @@ theme:
 
 <img title="how cute <3" src="./resources/images/init.png" />
 
-# > [Part 2 - Add some css](./custom%20theme/part2-add-some-css.md)
