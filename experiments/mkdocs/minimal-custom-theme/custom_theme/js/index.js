@@ -16,7 +16,6 @@ window.addEventListener("load", function (event) {
       "click",
       function (event) {
         console.log(event);
-        // lis_el[i].classList.toggle("hidden-phone");
         event.target.classList.toggle("collapsed");
       },
       false
