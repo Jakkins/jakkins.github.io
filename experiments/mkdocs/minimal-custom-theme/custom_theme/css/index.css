@@ -35,7 +35,7 @@ body {
 
   .content {
     /* do not remove these css */
-    margin: auto;
+    margin: 0 auto;
     /* if this min-width is black magic, read this: */
     /* https://stackoverflow.com/questions/36230944/prevent-flex-items-from-overflowing-a-container */
     min-width: 0;

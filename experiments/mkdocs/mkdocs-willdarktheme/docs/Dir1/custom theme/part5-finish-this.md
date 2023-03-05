@@ -186,8 +186,6 @@ window.addEventListener("load", function (event) {
 }
 ```
 
-## It's working but...
+## Problem
 
 > ***PROBLEM*** on page change the menu closes
-
-# > [Part 6 - Save state of the nav](./part6-nav-state.md)

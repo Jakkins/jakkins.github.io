@@ -15,8 +15,5 @@ markdown_extensions:
     - toc:
         permalink: '#'
 
-nav:
-    - Usage: index.md
-
 extra:
     version: 0.1.4
