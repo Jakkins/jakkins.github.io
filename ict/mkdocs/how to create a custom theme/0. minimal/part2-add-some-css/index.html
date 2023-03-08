@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	
+
+	<!---->
+	
+	<link rel="stylesheet" href="../../../../../highlight/styles/default.min.css" />
+	<link rel="stylesheet" href="../../../../../theme.css" />
+	<script src="../../../../../highlight/highlight.min.js"></script>
+	<script src="../../../../../theme.js"></script>
+	<script src="../../../../../nav.js"></script>
+	
+	<title>
+		2 - css to style layout - jakkins.github.io
+	</title>
+</head>
+
+<body>
+	
+<nav>
+	<ul class="nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../">jakkins</a>
+</li>
+
+
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>Ict</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+
+
+<li id="section" class="section noselect">
+	<span>Mkdocs</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+
+
+<li id="section" class="section noselect">
+	<span>How to create a custom theme</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+
+
+<li id="section" class="section noselect">
+	<span>0. minimal</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../ict/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part1-how-to-create-a-custom-theme/">1 - How to create a custom theme</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../ict/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part2-add-some-css/">2 - css to style layout</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../ict/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part3-add-lateral-dir-tree/">3 - Near a wholesome documentation</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../ict/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part4-jinja2/">4 - Jinja2</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../ict/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part5-finish-this/">5 - MkDocs css, js, styles and things</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../ict/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part6-nav-state/">6 - Nav State</a>
+</li>
+
+
+
+	</ul>
+</li>
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>1. enhanced</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../ict/mkdocs/how%20to%20create%20a%20custom%20theme/1.%20enhanced/000/">1 - Enhancing</a>
+</li>
+
+
+
+	</ul>
+</li>
+
+	</ul>
+</li>
+
+	</ul>
+</li>
+
+	</ul>
+</li>
+
+	</ul>
+</nav> <div id="page_content" class="content">
+    <h1 id="2-css-to-style-layout">2 - css to style layout</h1>
+<h2 id="custom_theme">custom_theme</h2>
+<pre><code class="language-txt">mkdocs.yml
+docs/
+    index.md
+    about.md
+custom_theme/
+    main.html
+        css
+            index.css
+</code></pre>
+<h2 id="mkdocsyml">mkdocs.yml</h2>
+<pre><code class="language-yaml">theme:
+  name: null
+  custom_dir: &quot;custom_theme/&quot;
+  palette:
+    primary: css/index.css
+</code></pre>
+<h2 id="mainhtml">main.html</h2>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &quot;css/index.css&quot;|url }}&quot; /&gt;
+    &lt;title&gt;
+      {% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}
+    &lt;/title&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    {{ page.content }}
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="problem">Problem</h2>
+<blockquote>
+<p><strong><em>WAIT A MOMENT</em></strong></p>
+<p>Why css are working only for index ???</p>
+</blockquote>
+<pre><code class="language-txt">http://localhost:8000/part2/
+
+this           --&gt; &lt;link rel=&quot;stylesheet&quot; href=&quot;css/index.css&quot; /&gt;
+will load this --&gt; http://localhost:8000/part2/css/index.css
+
+WARNING  -  [18:21:14] &quot;GET /part2/css/index.css HTTP/1.1&quot; code 404
+</code></pre>
+<h2 id="solution">Solution</h2>
+<h3 id="mkdocsyml_1">mkdocs.yml</h3>
+<pre><code class="language-yaml">theme:
+  name: null
+  custom_dir: &quot;custom_theme/&quot;
+  palette:
+    primary: css/index.css
+
+extra_css:
+  - css/index.css
+</code></pre>
+<h3 id="mainhtml_1">main.html</h3>
+<pre><code class="language-diff">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+-    &lt;link rel=&quot;stylesheet&quot; href=&quot;{{ &quot;css/index.css&quot;|url }}&quot; /&gt;
++    {% for path in config.extra_css %}
++    &lt;link href=&quot;{{ path|url }}&quot; rel=&quot;stylesheet&quot; /&gt;
++    {% endfor %}
+    &lt;title&gt;
+      {% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}
+    &lt;/title&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    {{ page.content }}
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="better-indexcss">better index.css</h3>
+<pre><code class="language-css">* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  background-color: rgb(0, 0, 0, 0);
+  color: whitesmoke;
+  font-family: &quot;Consolas&quot;, &quot;Courier New&quot;, &quot;Lucida Console&quot;, &quot;Menlo&quot;, &quot;Monaco&quot;,
+    &quot;Liberation Mono&quot;, &quot;Ubuntu Mono&quot;, &quot;DejaVu Sans Mono&quot;, &quot;Roboto Mono&quot;,
+    &quot;Noto Mono&quot;, &quot;Inconsolata&quot;, &quot;Source Code Pro&quot;, &quot;SF Mono&quot;, monospace;
+  line-height: 1.1;
+  font-size: 16px;
+  font-style: normal;
+}
+
+html,
+body {
+  background-color: rgb(18, 18, 18);
+  padding: 10px;
+}
+
+body {
+  margin: 0 auto;
+  max-width: 800px;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+h2 {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 26px;
+}
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+blockquote {
+  padding: 10px;
+  margin: 10px;
+  background-color: rgb(0, 41, 82);
+}
+
+blockquote p,
+blockquote strong em,
+blockquote p strong em {
+  color: rgb(242, 255, 103);
+}
+
+/* CODE */
+pre {
+  line-height: 0.7;
+  background-color: rgba(255, 255, 255, 0.152);
+  padding: 10px;
+}
+
+code {
+  background-color: rgba(20, 20, 20, 0);
+}
+
+.vscode-light .hljs-comment,
+.vscode-light .hljs-quote,
+.vscode-light .hljs-number,
+.vscode-light .hljs-class,
+.vscode-light .hljs-variable {
+  background-color: rgba(0, 128, 0, 0);
+  color: rgb(0, 138, 0);
+}
+</code></pre>
+<blockquote>
+<p><strong><em>PROBLEM</em></strong>
+code block has no highlighting.</p>
+</blockquote>
+<h3 id="possibilities">Possibilities</h3>
+<blockquote>
+<p><strong><em>NOTES:</em></strong>
+use two tabs for indent the list.</p>
+</blockquote>
+<ul>
+<li>https://highlightjs.org/download/<ul>
+<li>download</li>
+<li>change the default.css file</li>
+</ul>
+</li>
+<li>https://squidfunk.github.io/mkdocs-material/getting-started/</li>
+</ul>
+<h2 id="highlightjsjs">highlightjs.js</h2>
+<p>Download and unzip.</p>
+<h3 id="dir-tree">dir tree</h3>
+<pre><code class="language-txt">mkdocs.yml
+docs
+custom_theme/
+    main.html
+        css
+            index.css
+        highlight
+            styles
+                default.min.css
+            highlight.min.js
+</code></pre>
+<h3 id="mkdocsyml_2">mkdocs.yml</h3>
+<pre><code class="language-yaml">site_name: Minimal Custom Dir Tree
+use_directory_urls: true
+
+theme:
+  name: null
+  custom_dir: &quot;custom_theme/&quot;
+  palette:
+    primary: css/index.css
+
+extra_css:
+  - css/index.css
+  - highlight/styles/default.min.css
+
+extra_javascript:
+  - js/index.js
+  - highlight/highlight.min.js
+</code></pre>
+<h3 id="mainhtml_2">main.html</h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    {% for path in config.extra_css %}
+    &lt;link href=&quot;{{ path|url }}&quot; rel=&quot;stylesheet&quot; /&gt;
+    {% endfor %}
+    &lt;!-- --&gt;
+    {% block libs %}
+    &lt;link
+      rel=&quot;stylesheet&quot;
+      href=&quot;{{ base_url }}/highlight/styles/default.min.css&quot;
+    /&gt;
+    &lt;script src=&quot;{{ base_url }}/highlight/highlight.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;{{ base_url }}/js/index.js&quot;&gt;&lt;/script&gt;
+    {% endblock %}
+
+    &lt;script&gt;
+      document.addEventListener(&quot;DOMContentLoaded&quot;, (event) =&gt; {
+        // before css
+        hljs.highlightAll();
+      });
+      document.addEventListener(&quot;load&quot;, function () {
+        // after images and css
+      });
+    &lt;/script&gt;
+
+    &lt;title&gt;
+      {% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}
+    &lt;/title&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    {{ page.content }}
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="modify-defaultmincss">modify default.min.css</h3>
+<pre><code class="language-css">pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+}
+code.hljs {
+  padding: 3px 5px;
+}
+.hljs {
+  background: #1c1c1c;
+  color: #d3d3d3;
+}
+.hljs-comment {
+  color: #00a321;
+}
+.hljs-punctuation,
+.hljs-tag {
+  color: rgba(120, 105, 255, 0.907);
+}
+.hljs-tag .hljs-attr,
+.hljs-tag .hljs-name {
+  color: #0090dd;
+}
+.hljs-attribute,
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-name,
+.hljs-selector-tag {
+  font-weight: 700;
+}
+.hljs-addition {
+  color: rgba(40, 255, 40, 0.792);
+}
+.hljs-deletion {
+  color: rgba(255, 40, 40, 0.789);
+}
+.hljs-number,
+.hljs-quote,
+.hljs-selector-class,
+.hljs-selector-id,
+.hljs-string,
+.hljs-template-tag,
+.hljs-type {
+  color: rgb(0, 227, 4);
+}
+.hljs-section,
+.hljs-title {
+  color: rgba(241, 209, 0, 0.932);
+  font-weight: 700;
+}
+.hljs-link,
+.hljs-operator,
+.hljs-regexp,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-symbol,
+.hljs-template-variable,
+.hljs-variable {
+  color: #ab5656;
+}
+.hljs-literal {
+  color: #695;
+}
+.hljs-built_in,
+.hljs-bullet,
+.hljs-code {
+  color: #397300;
+}
+.hljs-meta {
+  color: #1f7199;
+}
+.hljs-meta .hljs-string {
+  color: #38a;
+}
+.hljs-emphasis {
+  font-style: italic;
+}
+.hljs-strong {
+  font-weight: 700;
+}
+</code></pre>
+    <br id="parse-me-away"/>
+</div>
+</body>
+
+</html>
