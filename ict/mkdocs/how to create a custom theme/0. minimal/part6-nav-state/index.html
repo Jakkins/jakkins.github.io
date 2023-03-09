@@ -6,17 +6,25 @@
 
     
 
+    <script>
+      // have to put this to make search plugin works
+      let base_url = ""
+    </script>
+
     <!---->
     
     <link
       rel="stylesheet"
       href="../../../../../highlight/styles/default.min.css"
     />
-    <link rel="stylesheet" href="../../../../../theme.css" />
+    <link rel="stylesheet" href="../../../../../css/theme.css" />
+    <link rel="stylesheet" href="../../../../../css/search.css" />
     <script src="../../../../../highlight/highlight.min.js"></script>
     <script src="../../../../../js/theme.js"></script>
     <script src="../../../../../js/nav.js"></script>
     
+    <script src="../../../../../search/main.js"></script>
+     
 
     <title>
       6 - Nav State - jakkins.github.io
@@ -26,27 +34,14 @@
   <body>
     
 <nav>
-	<div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    <span aria-hidden="true">&times;</span>
-                    <span class="sr-only">Close</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
+	<div class="search-container">
+  <input
+    type="text"
+    class="search-input"
+    placeholder="Per cercare inserire almeno 5 caratteri"
+    id="mkdocs-search-query"
+  />
+  <div class="search-results" id="mkdocs-search-results"></div>
 </div>
 	<ul class="nav">
 		
@@ -227,7 +222,7 @@ In static page generation it's normal to reset the state on every refresh.</p>
 </div>
   </body>
 
-<!--
+  <!--
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="../../../../../js/bootstrap.js"></script> -->
 </html>
