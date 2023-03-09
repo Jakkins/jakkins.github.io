@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+
+    <!---->
+    
+    <link
+      rel="stylesheet"
+      href="../../../../../highlight/styles/default.min.css"
+    />
+    <link rel="stylesheet" href="../../../../../theme.css" />
+    <script src="../../../../../highlight/highlight.min.js"></script>
+    <script src="../../../../../js/theme.js"></script>
+    <script src="../../../../../js/nav.js"></script>
+    
+
+    <title>
+      4 - Jinja2 - jakkins.github.io
+    </title>
+  </head>
+
+  <body>
+    
+<nav>
+	<div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+	<ul class="nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../">jakkins</a>
+</li>
+
+
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>Ict</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+
+
+<li id="section" class="section noselect">
+	<span>Mkdocs</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+
+
+<li id="section" class="section noselect">
+	<span>How to create a custom theme</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+
+
+<li id="section" class="section noselect">
+	<span>0. minimal</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../ict/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part1-how-to-create-a-custom-theme/">1 - How to create a custom theme</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../ict/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part2-add-some-css/">2 - css to style layout</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../ict/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part3-add-lateral-dir-tree/">3 - Near a wholesome documentation</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../ict/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part4-jinja2/">4 - Jinja2</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../ict/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part5-finish-this/">5 - MkDocs css, js, styles and things</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../ict/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part6-nav-state/">6 - Nav State</a>
+</li>
+
+
+
+	</ul>
+</li>
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>1. enhanced</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../ict/mkdocs/how%20to%20create%20a%20custom%20theme/1.%20enhanced/000/">1 - Enhancing</a>
+</li>
+
+
+
+	</ul>
+</li>
+
+	</ul>
+</li>
+
+	</ul>
+</li>
+
+	</ul>
+</li>
+
+	</ul>
+</nav> <div id="page_content" class="content">
+    <h1 id="4-jinja2">4 - Jinja2</h1>
+<p><a href="https://palletsprojects.com/p/jinja/" target="_blank">easier start</a> <br>
+<a href="https://jinja.palletsprojects.com/en/latest/" target="_blank">docs</a></p>
+<h2 id="goal">GOAL</h2>
+<blockquote>
+<p>list files and directories inside nav. (no "page", no links)</p>
+</blockquote>
+<p>Also</p>
+<blockquote>
+<p>Jinja2 template engine that comes with MkDocs is not pure Jinja2 because there is no python involved.</p>
+</blockquote>
+<h1 id="mkdocss-jinja2">MkDocs's Jinja2</h1>
+<h2 id="indexhtml">index.html</h2>
+<pre><code class="language-html">&lt;body&gt;
+  {% include 'nav-main.html' %}
+  {{ page.content }}
+&lt;/body&gt;
+</code></pre>
+<h2 id="nav-mainhtml-how-to-debug">nav-main.html &amp; how to debug</h2>
+<pre><code class="language-html">{%- block site_nav %}
+&lt;nav class=&quot;nav-main&quot;&gt;
+  &lt;ul&gt;
+    {%- set navlevel = 1 %}
+    &lt;!----&gt;
+    {%- for nav_item in nav %}
+    &lt;script&gt;
+      // debug nav_item
+      console.log(&quot;{{ nav_item }}&quot;);
+    &lt;/script&gt;
+    {%- endfor %}
+  &lt;/ul&gt;
+&lt;/nav&gt;
+{%- endblock %}
+</code></pre>
+<h2 id="check-if-dir">check if dir</h2>
+<pre><code class="language-html">{%- block site_nav %}
+&lt;nav class=&quot;nav-main&quot;&gt;
+  &lt;ul&gt;
+    {%- set navlevel = 1 %} 
+    {%- for nav_item in nav %} 
+    {% include 'nav-item.html' %} 
+    {%- endfor %}
+  &lt;/ul&gt;
+&lt;/nav&gt;
+{%- endblock %}
+</code></pre>
+<h3 id="nav-itemhtml-with-more-debug">nav-item.html with more debug</h3>
+<blockquote>
+<p>comments: &lt;!---&gt; are a problem with Jinja2</p>
+</blockquote>
+<pre><code class="language-html">&lt;script&gt;
+    console.log(&quot;{{ nav_item }}&quot;)
+&lt;/script&gt;
+
+{% if nav_item.url %}
+&lt;li&gt;
+    &lt;a href=&quot;{{ nav_item.url }}&quot;&gt;url --- {{ nav_item.title }}&lt;/a&gt;
+&lt;/li&gt;
+{% endif %}
+
+{% if nav_item.is_page  %}
+&lt;li&gt;
+    &lt;a href=&quot;{{ nav_item.url }}&quot;&gt;page --- {{ nav_item.title }}&lt;/a&gt;
+&lt;/li&gt;
+{% endif %}
+
+{% if nav_item.is_link %}
+&lt;li&gt;
+    &lt;a href=&quot;{{ nav_item.url }}&quot;&gt;link --- {{ nav_item.title }}&lt;/a&gt;
+&lt;/li&gt;
+{% endif %}
+
+{% if nav_item.is_section %}
+&lt;li&gt;
+    &lt;a href=&quot;{{ nav_item.url }}&quot;&gt;section --- {{ nav_item.title }}&lt;/a&gt;
+&lt;/li&gt;
+{% endif %}
+</code></pre>
+<h1 id="legenda">Legenda</h1>
+<pre><code class="language-txt">page    : the title in the first line of every md file
+section : the directory name inside docs dir
+</code></pre>
+<blockquote>
+<p>The order is by filename and not by title!</p>
+<p>This is good because you can name every file like:</p>
+<ul>
+<li>
+<p>000.md</p>
+</li>
+<li>
+<p>001.md</p>
+</li>
+</ul>
+<p>But you can always change title as you want:</p>
+<ul>
+<li>
+<p>000.md</p>
+<ul>
+<li>Home</li>
+</ul>
+</li>
+<li>
+<p>0001.md</p>
+<ul>
+<li>part1 </li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="example">Example</h2>
+<pre><code class="language-txt">docs
+  index.md
+    (# Home)
+  dir1
+    index2.md
+      (# Part1)
+  dir2
+    image.jpg
+</code></pre>
+<pre><code class="language-html">&lt;script&gt;
+    console.log(&quot;{{ nav_item }}&quot;)
+&lt;/script&gt;
+
+{% if nav_item.is_page  %}
+&lt;li&gt;
+    &lt;a href=&quot;{{ base_url }}/{{ nav_item.url }}&quot;&gt;{{ nav_item.title }}&lt;/a&gt;
+&lt;/li&gt;
+{% endif %}
+
+{% if nav_item.is_section %}
+&lt;li&gt;
+    &lt;span&gt;{{ nav_item.title }}&lt;/span&gt;
+&lt;/li&gt;
+{% endif %}
+
+&lt;!-- if nav_item has children --&gt;
+{%- if nav_item.children %}
+&lt;li&gt;
+    &lt;ul&gt;
+        {%- set navlevel = navlevel + 1 %}
+        {%- for nav_item in nav_item.children %}
+        {% include 'nav-item2.html' %}
+        {%- endfor %}
+        {%- set navlevel = navlevel - 1 %}
+    &lt;/ul&gt;
+&lt;/li&gt;
+{% endif %}
+</code></pre>
+<h2 id="results">Results</h2>
+<pre><code class="language-html">- Home
+- dir1
+  - Part1
+</code></pre>
+<blockquote>
+<p>Only directories with md file inside are taken into consideration.</p>
+</blockquote>
+    <br id="parse-me-away"/>
+</div>
+  </body>
+
+<!--
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="../../../../../js/bootstrap.js"></script> -->
+</html>
