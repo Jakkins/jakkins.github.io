@@ -24,7 +24,7 @@
 	
 
 	<title>
-		2 - css to style layout
+		1 - How to create a custom theme
 	</title>
 </head>
 
@@ -61,49 +61,6 @@
 </li>
 
 
-
-		
-
-
-<li id="section" class="section noselect">
-	<span>ICT</span>
-</li>
-
-<li class="children">
-	<ul class="sub-nav">
-		
-
-
-<li id="section" class="section noselect">
-	<span>Dev</span>
-</li>
-
-<li class="children">
-	<ul class="sub-nav">
-		
-
-
-<li id="section" class="section noselect">
-	<span>Python</span>
-</li>
-
-<li class="children">
-	<ul class="sub-nav">
-		
-<li class="nav-page">
-	<a class="noselect" href="../../../../../ICT/dev/python/Index/">Index</a>
-</li>
-
-
-
-	</ul>
-</li>
-
-	</ul>
-</li>
-
-	</ul>
-</li>
 
 		
 
@@ -159,25 +116,6 @@
 
 
 
-	</ul>
-</li>
-
-		
-
-
-<li id="section" class="section noselect">
-	<span>Tutorials</span>
-</li>
-
-<li class="children">
-	<ul class="sub-nav">
-		
-<li class="nav-page">
-	<a class="noselect" href="../../../../../Tutorials/">Index</a>
-</li>
-
-
-
 		
 
 
@@ -207,42 +145,42 @@
 	<ul class="sub-nav">
 		
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Tutorials/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part1-how-to-create-a-custom-theme/">1 - How to create a custom theme</a>
+	<a class="noselect" href="../../../../../Ricerche/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part1-how-to-create-a-custom-theme/">1 - How to create a custom theme</a>
 </li>
 
 
 
 		
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Tutorials/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part2-add-some-css/">2 - css to style layout</a>
+	<a class="noselect" href="../../../../../Ricerche/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part2-add-some-css/">2 - css to style layout</a>
 </li>
 
 
 
 		
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Tutorials/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part3-add-lateral-dir-tree/">3 - Near a wholesome documentation</a>
+	<a class="noselect" href="../../../../../Ricerche/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part3-add-lateral-dir-tree/">3 - Near a wholesome documentation</a>
 </li>
 
 
 
 		
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Tutorials/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part4-jinja2/">4 - Jinja2</a>
+	<a class="noselect" href="../../../../../Ricerche/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part4-jinja2/">4 - Jinja2</a>
 </li>
 
 
 
 		
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Tutorials/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part5-finish-this/">5 - MkDocs css, js, styles and things</a>
+	<a class="noselect" href="../../../../../Ricerche/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part5-finish-this/">5 - MkDocs css, js, styles and things</a>
 </li>
 
 
 
 		
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Tutorials/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part6-nav-state/">6 - Nav State</a>
+	<a class="noselect" href="../../../../../Ricerche/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part6-nav-state/">6 - Nav State</a>
 </li>
 
 
@@ -252,6 +190,44 @@
 
 	</ul>
 </li>
+
+	</ul>
+</li>
+
+	</ul>
+</li>
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>Tutorials</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../Tutorials/">Index</a>
+</li>
+
+
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>Python</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../../Tutorials/python/Index/">Index</a>
+</li>
+
+
 
 	</ul>
 </li>
@@ -261,7 +237,7 @@
 
 	</ul>
 </nav> <div id="page_content" class="content">
-    <h1 id="2-css-to-style-layout">2 - css to style layout</h1>
+    <h1 id="1-how-to-create-a-custom-theme">1 - How to create a custom theme</h1>
 <h2 id="custom_theme">custom_theme</h2>
 <pre><code class="language-txt">mkdocs.yml
 docs/
@@ -335,6 +311,8 @@ extra_css:
   &lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
+<h3 id="example-until-now">Example until now</h3>
+<p><img alt="mkdocs-theme-init" src="../mkdocs-theme-init.png" /></p>
 <h3 id="better-indexcss">better index.css</h3>
 <pre><code class="language-css">* {
   box-sizing: border-box;
@@ -424,12 +402,12 @@ code block has no highlighting.</p>
 use two tabs for indent the list.</p>
 </blockquote>
 <ul>
-<li>https://highlightjs.org/download/<ul>
+<li><a href="https://highlightjs.org/download/">https://highlightjs.org/download/</a><ul>
 <li>download</li>
 <li>change the default.css file</li>
 </ul>
 </li>
-<li>https://squidfunk.github.io/mkdocs-material/getting-started/</li>
+<li><a href="https://squidfunk.github.io/mkdocs-material/getting-started/">https://squidfunk.github.io/mkdocs-material/getting-started/</a></li>
 </ul>
 <h2 id="highlightjsjs">highlightjs.js</h2>
 <p>Download and unzip.</p>
