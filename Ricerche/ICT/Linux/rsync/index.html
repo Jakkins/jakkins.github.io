@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	
+
+	<script>
+		// have to put this to make search plugin works
+		let base_url = ""
+	</script>
+
+	<!---->
+	<link rel="stylesheet" href="../../../../highlight/styles/default.min.css" />
+	<link rel="stylesheet" href="../../../../css/theme.css" />
+	<link rel="stylesheet" href="../../../../css/search.css" />
+	<script src="/highlight/highlight.min.js"></script>
+	<script src="/js/theme.js"></script>
+	<script src="/js/nav.js"></script>
+	
+	<script src="/search/main.js"></script>
+	
+
+	<title>
+		rsync
+	</title>
+</head>
+
+<body>
+	
+<nav>
+	<div class="search-container">
+  <input
+    type="text"
+    class="search-input"
+    placeholder="Clicca per cercare!"
+    id="mkdocs-search-query"
+  />
+  <div class="search-results" id="mkdocs-search-results"></div>
+</div>
+	<ul class="nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../">J</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../manifesti/">Manifesti</a>
+</li>
+
+
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>Liste</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Liste/">Index</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Liste/000-noisy-flow/">Noisy Flow</a>
+</li>
+
+
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>Archives</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Liste/Archives/">Archives</a>
+</li>
+
+
+
+	</ul>
+</li>
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>Strumenti</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Liste/Strumenti/Temporary%20emails/">Temporary emails</a>
+</li>
+
+
+
+	</ul>
+</li>
+
+	</ul>
+</li>
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>Montelago</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Montelago/">Montelago</a>
+</li>
+
+
+
+	</ul>
+</li>
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>Ricerche</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Ricerche/">Index</a>
+</li>
+
+
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>ICT</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+
+
+<li id="section" class="section noselect">
+	<span>IDEs</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+
+
+<li id="section" class="section noselect">
+	<span>VSCode</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Ricerche/ICT/IDEs/VSCode/plugins/">VSCode plugins</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Ricerche/ICT/IDEs/VSCode/tips%26tricks/">Tips and Tricks</a>
+</li>
+
+
+
+	</ul>
+</li>
+
+	</ul>
+</li>
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>Linux</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Ricerche/ICT/Linux/rsync/">rsync</a>
+</li>
+
+
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>Systemd</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Ricerche/ICT/Linux/systemd/list-services/">List Services</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Ricerche/ICT/Linux/systemd/schedule-a-service/">Schedule a service</a>
+</li>
+
+
+
+	</ul>
+</li>
+
+	</ul>
+</li>
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>Mkdocs</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+
+
+<li id="section" class="section noselect">
+	<span>How to create a custom theme</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+
+
+<li id="section" class="section noselect">
+	<span>0. minimal</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part1-how-to-create-a-custom-theme/">1 - How to create a custom theme</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part2-add-some-css/">2 - css to style layout</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part3-add-lateral-dir-tree/">3 - Near a wholesome documentation</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part4-jinja2/">4 - Jinja2</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part5-finish-this/">5 - MkDocs css, js, styles and things</a>
+</li>
+
+
+
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part6-nav-state/">6 - Nav State</a>
+</li>
+
+
+
+	</ul>
+</li>
+
+	</ul>
+</li>
+
+	</ul>
+</li>
+
+	</ul>
+</li>
+
+	</ul>
+</li>
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>Tutorials</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Tutorials/">Index</a>
+</li>
+
+
+
+		
+
+
+<li id="section" class="section noselect">
+	<span>Python</span>
+</li>
+
+<li class="children">
+	<ul class="sub-nav">
+		
+<li class="nav-page">
+	<a class="noselect" href="../../../../Tutorials/python/Index/">Index</a>
+</li>
+
+
+
+	</ul>
+</li>
+
+	</ul>
+</li>
+
+	</ul>
+</nav> <div id="page_content" class="content">
+    <h1 id="rsync">rsync</h1>
+<p>E' un software per Unix che sincronizza file e cartelle da una posizione all'altra minimizzando il trasferimento di dati utilizzando quando possibile la codifica delta.
+Che vor dì?</p>
+<p>Vuol dire che non sincronizza i file già sincronizzati.
+C'è un <a href="https://www.youtube.com/watch?v=qE77MbDnljA">ottimo video</a> che mostra degli esempi di utilizzo base.</p>
+<h2 id="come-mostrare-a-schermo-loggare-quello-che-il-programma-sta-facendo">Come mostrare a schermo (loggare) quello che il programma sta facendo</h2>
+<pre><code class="language-bash">rsync -v -progress
+
+# -v           verbose, mostra delle info
+# -progress    mostra quanti dati ha spostato sul totale
+</code></pre>
+<h2 id="come-faccio-a-sincronizzare-due-cartelle-forzando-leliminazione-dei-file-che-non-esistono-piu">Come faccio a sincronizzare due cartelle forzando l'eliminazione dei file che non esistono più?</h2>
+<p>Questo comando copia la cartella 1 dentro la cartella 2.</p>
+<pre><code class="language-bash">rsync -v -progress -a ./dir1 ./dir2
+
+# -a, --archive, archive mode, equivalent to -rlptgoD. Questa operazione del conserva tutto (permessi, link simbolici, gruppi, proprietà, data modifica, ...)
+</code></pre>
+<p>Questo comando, <strong><em>invece, copia il contenuto</em></strong> della cartella 1 dentro la cartella 2.</p>
+<pre><code class="language-bash">rsync -v -progress -a ./dir1/ ./dir2
+</code></pre>
+<p>Unico problema, questo comando non cancella i file, ovvero non fa un perfetto mirror della cartella sorgente, ovvero:</p>
+<ul>
+<li>se se di1 ci sono 2 file (file1, file2)</li>
+<li>e su dir 2 ci sono 3 file (file1, file3, file4)</li>
+</ul>
+<p>Un perfetto mirror sarebbe quello di cancellare file3 e file4 e salvare il file2 in modo da avere entrambe le cartelle che contengono gli stessi file.</p>
+<h2 id="mirror-backup">Mirror backup</h2>
+<pre><code class="language-bash">rsync -v -progress -a --delete ./dir1/ ./dir2 
+
+# --delete       questo comando cancella i file nella dir2 che non sono presenti nella dir1
+</code></pre>
+<h2 id="il-comando-sopra-puo-essere-scritto-anche-in-questo-modo">Il comando sopra può essere scritto anche in questo modo</h2>
+<pre><code class="language-bash">rsync -vPa --delete ./dir1/ ./dir2     
+</code></pre>
+<h2 id="come-controllare-prima-di-fare-modifiche">Come controllare prima di fare modifiche</h2>
+<p>Basta aggiungere una "-n". In questo modo non verranno eseguite modifiche nella cartella destinazione.</p>
+<pre><code class="language-bash">rsync -nvPa --delete ./dir1/ ./dir2     
+</code></pre>
+<h2 id="come-ignorare-il-backup-di-certi-file-o-cartelle">Come ignorare il backup di certi file o cartelle</h2>
+<p>Ci sono 2 opzioni per fare questo.</p>
+<pre><code class="language-bash"># --exclude=PATTERN       exclude files matching PATTERN
+# --exclude-from=FILE     read exclude patterns from FILE
+</code></pre>
+<h3 id="-exclude">--exclude</h3>
+<pre><code class="language-bash">rsync -vPa --delete --exclude={&quot;file1.txt&quot;,&quot;dir1/*&quot;,&quot;dir2&quot;} ./dir1/ ./dir2
+
+# &quot;file1.txt&quot;        won't copy file1.txt
+# &quot;dir1/*&quot;           will copy dir1, but not it's content
+# &quot;dir2&quot;             won't copy the whole dir2
+</code></pre>
+<h3 id="-exclude-from">--exclude-from</h3>
+<p>This is maybe stupid, but also a sort of hack.</p>
+<pre><code class="language-bash">EXCLUDES_NODE=$(echo -e 'node_modules')
+EXCLUDES_ANDROID=$(echo -e 'build\n.idea\n*.apk')
+EXCLUDES_RUST=$(echo -e 'target')
+EXCLUDES_ALL=$(echo -e &quot;$EXCLUDES_NODE\n$EXCLUDES_ANDROID\n$EXCLUDES_RUST&quot;)
+
+rsync -vPa --delete --exclude-from=&lt;(printf &quot;%s&quot; &quot;$EXCLUDES_ALL&quot;) ./dir1/ ./dir2
+</code></pre>
+    <br id="parse-me-away"/>
+</div>
+</body>
+
+</html>
