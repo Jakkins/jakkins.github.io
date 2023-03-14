@@ -1,376 +1,209 @@
 <!DOCTYPE html>
+
 <html>
-
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-	
-
-	<script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<script>
 		// have to put this to make search plugin works
 		let base_url = ""
 	</script>
-
-	<!---->
-	<link rel="stylesheet" href="../../../../../highlight/styles/default.min.css" />
-	<link rel="stylesheet" href="../../../../../css/theme.css" />
-	<link rel="stylesheet" href="../../../../../css/search.css" />
-	<script src="/highlight/highlight.min.js"></script>
-	<script src="/js/theme.js"></script>
-	<script src="/js/nav.js"></script>
-	
-	<script src="/search/main.js"></script>
-	
-
-	<title>
+<!-- -->
+<link href="../../../../../highlight/styles/default.min.css" rel="stylesheet"/>
+<link href="../../../../../css/theme.css" rel="stylesheet"/>
+<link href="../../../../../css/search.css" rel="stylesheet"/>
+<script src="/highlight/highlight.min.js"></script>
+<script src="/js/theme.js"></script>
+<script src="/js/nav.js"></script>
+<script src="/search/main.js"></script>
+<title>
 		VSCode plugins
 	</title>
 </head>
-
 <body>
-	
 <nav>
-	<div class="search-container">
-  <input
-    type="text"
-    class="search-input"
-    placeholder="Clicca per cercare!"
-    id="mkdocs-search-query"
-  />
-  <div class="search-results" id="mkdocs-search-results"></div>
+<div class="search-container">
+<input class="search-input" id="mkdocs-search-query" placeholder="Clicca per cercare!" type="text"/>
+<div class="search-results" id="mkdocs-search-results"></div>
 </div>
-	<ul class="nav">
-		
+<ul class="nav">
 <li class="nav-page">
-	<a class="noselect" href="../../../../../">J</a>
+<a class="noselect" href="../../../../../">J</a>
 </li>
-
-
-
-		
 <li class="nav-page">
-	<a class="noselect" href="../../../../../manifesti/">Manifesti</a>
+<a class="noselect" href="../../../../../manifesti/">Manifesti</a>
 </li>
-
-
-
-		
-
-
-<li id="section" class="section noselect">
-	<span>Liste</span>
+<li class="section noselect" id="section">
+<span>Liste</span>
 </li>
-
 <li class="children">
-	<ul class="sub-nav">
-		
+<ul class="sub-nav">
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Liste/">Index</a>
+<a class="noselect" href="../../../../../Liste/">Index</a>
 </li>
-
-
-
-		
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Liste/000-noisy-flow/">Noisy Flow</a>
+<a class="noselect" href="../../../../../Liste/000-noisy-flow/">Noisy Flow</a>
 </li>
-
-
-
-		
-
-
-<li id="section" class="section noselect">
-	<span>Archives</span>
+<li class="section noselect" id="section">
+<span>Archives</span>
 </li>
-
 <li class="children">
-	<ul class="sub-nav">
-		
+<ul class="sub-nav">
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Liste/Archives/">Archives</a>
+<a class="noselect" href="../../../../../Liste/Archives/">Archives</a>
 </li>
-
-
-
-	</ul>
+</ul>
 </li>
-
-		
-
-
-<li id="section" class="section noselect">
-	<span>Strumenti</span>
+<li class="section noselect" id="section">
+<span>Strumenti</span>
 </li>
-
 <li class="children">
-	<ul class="sub-nav">
-		
+<ul class="sub-nav">
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Liste/Strumenti/Temporary%20emails/">Temporary emails</a>
+<a class="noselect" href="../../../../../Liste/Strumenti/Temporary%20emails/">Temporary emails</a>
 </li>
-
-
-
-	</ul>
+</ul>
 </li>
-
-	</ul>
+</ul>
 </li>
-
-		
-
-
-<li id="section" class="section noselect">
-	<span>Montelago</span>
+<li class="section noselect" id="section">
+<span>Montelago</span>
 </li>
-
 <li class="children">
-	<ul class="sub-nav">
-		
+<ul class="sub-nav">
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Montelago/">Montelago</a>
+<a class="noselect" href="../../../../../Montelago/">Montelago</a>
 </li>
-
-
-
-	</ul>
+</ul>
 </li>
-
-		
-
-
-<li id="section" class="section noselect">
-	<span>Ricerche</span>
+<li class="section noselect" id="section">
+<span>Ricerche</span>
 </li>
-
 <li class="children">
-	<ul class="sub-nav">
-		
+<ul class="sub-nav">
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Ricerche/">Index</a>
+<a class="noselect" href="../../../../../Ricerche/">Index</a>
 </li>
-
-
-
-		
-
-
-<li id="section" class="section noselect">
-	<span>ICT</span>
+<li class="nav-page">
+<a class="noselect" href="../../../../../Ricerche/TFR-Trattamento-fine-rapporto/">TFR - Trattamento fine rapporto (liquidazione)</a>
 </li>
-
+<li class="section noselect" id="section">
+<span>ICT</span>
+</li>
 <li class="children">
-	<ul class="sub-nav">
-		
-
-
-<li id="section" class="section noselect">
-	<span>IDEs</span>
+<ul class="sub-nav">
+<li class="section noselect" id="section">
+<span>IDEs</span>
 </li>
-
 <li class="children">
-	<ul class="sub-nav">
-		
-
-
-<li id="section" class="section noselect">
-	<span>VSCode</span>
+<ul class="sub-nav">
+<li class="section noselect" id="section">
+<span>VSCode</span>
 </li>
-
 <li class="children">
-	<ul class="sub-nav">
-		
+<ul class="sub-nav">
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Ricerche/ICT/IDEs/VSCode/plugins/">VSCode plugins</a>
+<a class="noselect" href="../../../../../Ricerche/ICT/IDEs/VSCode/plugins/">VSCode plugins</a>
 </li>
-
-
-
-		
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Ricerche/ICT/IDEs/VSCode/tips%26tricks/">Tips and Tricks</a>
+<a class="noselect" href="../../../../../Ricerche/ICT/IDEs/VSCode/tips%26tricks/">Tips and Tricks</a>
 </li>
-
-
-
-	</ul>
+</ul>
 </li>
-
-	</ul>
+</ul>
 </li>
-
-		
-
-
-<li id="section" class="section noselect">
-	<span>Linux</span>
+<li class="section noselect" id="section">
+<span>Linux</span>
 </li>
-
 <li class="children">
-	<ul class="sub-nav">
-		
+<ul class="sub-nav">
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Ricerche/ICT/Linux/rsync/">rsync</a>
+<a class="noselect" href="../../../../../Ricerche/ICT/Linux/rsync/">rsync</a>
 </li>
-
-
-
-		
-
-
-<li id="section" class="section noselect">
-	<span>Systemd</span>
+<li class="section noselect" id="section">
+<span>Systemd</span>
 </li>
-
 <li class="children">
-	<ul class="sub-nav">
-		
+<ul class="sub-nav">
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Ricerche/ICT/Linux/systemd/list-services/">List Services</a>
+<a class="noselect" href="../../../../../Ricerche/ICT/Linux/systemd/list-services/">List Services</a>
 </li>
-
-
-
-		
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Ricerche/ICT/Linux/systemd/schedule-a-service/">Schedule a service</a>
+<a class="noselect" href="../../../../../Ricerche/ICT/Linux/systemd/schedule-a-service/">Schedule a service</a>
 </li>
-
-
-
-	</ul>
+</ul>
 </li>
-
-	</ul>
+</ul>
 </li>
-
-		
-
-
-<li id="section" class="section noselect">
-	<span>Mkdocs</span>
+<li class="section noselect" id="section">
+<span>Mkdocs</span>
 </li>
-
 <li class="children">
-	<ul class="sub-nav">
-		
-
-
-<li id="section" class="section noselect">
-	<span>How to create a custom theme</span>
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../Ricerche/ICT/mkdocs/install-some-plugins/">How to install some plugins</a>
 </li>
-
+<li class="section noselect" id="section">
+<span>How to create a custom theme</span>
+</li>
 <li class="children">
-	<ul class="sub-nav">
-		
-
-
-<li id="section" class="section noselect">
-	<span>0. minimal</span>
+<ul class="sub-nav">
+<li class="section noselect" id="section">
+<span>0. minimal</span>
 </li>
-
 <li class="children">
-	<ul class="sub-nav">
-		
+<ul class="sub-nav">
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part1-how-to-create-a-custom-theme/">1 - How to create a custom theme</a>
+<a class="noselect" href="../../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part1-how-to-create-a-custom-theme/">1 - How to create a custom theme</a>
 </li>
-
-
-
-		
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part2-add-some-css/">2 - css to style layout</a>
+<a class="noselect" href="../../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part2-add-some-css/">2 - css to style layout</a>
 </li>
-
-
-
-		
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part3-add-lateral-dir-tree/">3 - Near a wholesome documentation</a>
+<a class="noselect" href="../../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part3-add-lateral-dir-tree/">3 - Near a wholesome documentation</a>
 </li>
-
-
-
-		
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part4-jinja2/">4 - Jinja2</a>
+<a class="noselect" href="../../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part4-jinja2/">4 - Jinja2</a>
 </li>
-
-
-
-		
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part5-finish-this/">5 - MkDocs css, js, styles and things</a>
+<a class="noselect" href="../../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part5-finish-this/">5 - MkDocs css, js, styles and things</a>
 </li>
-
-
-
-		
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part6-nav-state/">6 - Nav State</a>
+<a class="noselect" href="../../../../../Ricerche/ICT/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part6-nav-state/">6 - Nav State</a>
 </li>
-
-
-
-	</ul>
+</ul>
 </li>
-
-	</ul>
+</ul>
 </li>
-
-	</ul>
+</ul>
 </li>
-
-	</ul>
+</ul>
 </li>
-
-	</ul>
+</ul>
 </li>
-
-		
-
-
-<li id="section" class="section noselect">
-	<span>Tutorials</span>
+<li class="section noselect" id="section">
+<span>Tutorials</span>
 </li>
-
 <li class="children">
-	<ul class="sub-nav">
-		
+<ul class="sub-nav">
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Tutorials/">Index</a>
+<a class="noselect" href="../../../../../Tutorials/">Index</a>
 </li>
-
-
-
-		
-
-
-<li id="section" class="section noselect">
-	<span>Python</span>
+<li class="section noselect" id="section">
+<span>Python</span>
 </li>
-
 <li class="children">
-	<ul class="sub-nav">
-		
+<ul class="sub-nav">
 <li class="nav-page">
-	<a class="noselect" href="../../../../../Tutorials/python/Index/">Index</a>
+<a class="noselect" href="../../../../../Tutorials/python/Index/">Index</a>
 </li>
-
-
-
-	</ul>
+</ul>
 </li>
-
-	</ul>
+</ul>
 </li>
-
-	</ul>
-</nav> <div id="page_content" class="content">
-    <h1 id="vscode-plugins">VSCode plugins</h1>
+</ul>
+</nav> <div class="content" id="page_content">
+<h1 id="vscode-plugins">VSCode plugins</h1>
 <ul>
 <li><a href="#vscode-plugins">VSCode plugins</a><ul>
 <li><a href="#markdown-extension-pack">Markdown Extension Pack</a><ul>
@@ -394,14 +227,14 @@
 <li>write: "Preferences: Open <strong>User</strong> Settings"</li>
 <li>modify plugin configuration</li>
 </ol>
-<pre><code class="language-json">&quot;markdownlint.config&quot;: {
-    &quot;no-duplicate-header&quot;: false,
-    &quot;no-hard-tabs&quot;: false,
-    &quot;no-inline-html&quot;: false,
-    &quot;single-h1&quot;: false,
-    &quot;no-bare-urls&quot;: false,
-        &quot;ul-indent&quot;: {
-      &quot;indent&quot;: 4
+<pre><code class="language-json">"markdownlint.config": {
+    "no-duplicate-header": false,
+    "no-hard-tabs": false,
+    "no-inline-html": false,
+    "single-h1": false,
+    "no-bare-urls": false,
+        "ul-indent": {
+      "indent": 4
     }
 }
 </code></pre>
@@ -422,8 +255,8 @@
 <li>pres: ctrl + shift + p</li>
 <li>write: create table of contents</li>
 </ol>
-    <br id="parse-me-away"/>
+<br id="parse-me-away"/>
 </div>
 </body>
-
+<script src="https://unpkg.com/mermaid@8.7.0/dist/mermaid.min.js"></script>
 </html>

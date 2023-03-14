@@ -17,7 +17,7 @@
 <script src="/js/nav.js"></script>
 <script src="/search/main.js"></script>
 <title>
-		rsync
+		How to install some plugins
 	</title>
 </head>
 <body>
@@ -203,66 +203,55 @@
 </li>
 </ul>
 </nav> <div class="content" id="page_content">
-<h1 id="rsync">rsync</h1>
-<p>E' un software per Unix che sincronizza file e cartelle da una posizione all'altra minimizzando il trasferimento di dati utilizzando quando possibile la codifica delta.
-Che vor dì?</p>
-<p>Vuol dire che non sincronizza i file già sincronizzati.
-C'è un <a href="https://www.youtube.com/watch?v=qE77MbDnljA">ottimo video</a> che mostra degli esempi di utilizzo base.</p>
-<h2 id="come-mostrare-a-schermo-loggare-quello-che-il-programma-sta-facendo">Come mostrare a schermo (loggare) quello che il programma sta facendo</h2>
-<pre><code class="language-bash">rsync -v -progress
+<h1 id="how-to-install-some-plugins">How to install some plugins</h1>
+<h2 id="basic-mkdocs-project">Basic mkdocs project</h2>
+<pre><code class="language-txt">mkdocs.yml
+docs
+    index.md
+</code></pre>
+<h2 id="how-to-install-a-plugin-mkdocs-mermaid2-plugin">how to install a plugin (mkdocs-mermaid2-plugin)</h2>
+<h3 id="upgrade-tools">upgrade tools</h3>
+<pre><code class="language-bash">python -m pip install --upgrade pip --user
+python -m pip install --upgrade setuptools --user
 
-# -v           verbose, mostra delle info
-# -progress    mostra quanti dati ha spostato sul totale
+# pip with proxy 
+python -m pip install --proxy http://host:8080 --upgrade pip --user
 </code></pre>
-<h2 id="come-faccio-a-sincronizzare-due-cartelle-forzando-leliminazione-dei-file-che-non-esistono-piu">Come faccio a sincronizzare due cartelle forzando l'eliminazione dei file che non esistono più?</h2>
-<p>Questo comando copia la cartella 1 dentro la cartella 2.</p>
-<pre><code class="language-bash">rsync -v -progress -a ./dir1 ./dir2
+<h3 id="download-the-plugin">download the plugin</h3>
+<pre><code class="language-bash">python -m pip install mkdocs-mermaid2-plugin --user
 
-# -a, --archive, archive mode, equivalent to -rlptgoD. Questa operazione del conserva tutto (permessi, link simbolici, gruppi, proprietà, data modifica, ...)
+# pip with proxy 
+python -m pip install --proxy http://host:8080 mkdocs-mermaid2-plugin --user
 </code></pre>
-<p>Questo comando, <strong><em>invece, copia il contenuto</em></strong> della cartella 1 dentro la cartella 2.</p>
-<pre><code class="language-bash">rsync -v -progress -a ./dir1/ ./dir2
+<h4 id="if-behind-firewall">if behind firewall</h4>
+<pre><code class="language-bash">python -m pip install --proxy http://host:8080 mkdocs-mermaid2-plugin --user --no-build-isolation
 </code></pre>
-<p>Unico problema, questo comando non cancella i file, ovvero non fa un perfetto mirror della cartella sorgente, ovvero:</p>
+<h3 id="edit-mkdocsyml">edit mkdocs.yml</h3>
+<pre><code class="language-yml">plugins:
+  - search:
+      min_search_length: 1
+  - mermaid2:
+      arguments:
+        theme: "dark"
+        startOnLoad: true
+
+extra_javascript:
+  - https://unpkg.com/mermaid@8.7.0/dist/mermaid.min.js
+</code></pre>
+<blockquote>
+<p><strong><em>WARN</em></strong></p>
+<p>Also index.html needs to be modified</p>
+</blockquote>
+<h3 id="edit-indexhtml-or-mainhtml">edit index.html or main.html</h3>
+<p>Add this:</p>
+<pre><code class="language-html">&lt;script src="https://unpkg.com/mermaid@8.7.0/dist/mermaid.min.js"&gt;&lt;/script&gt;
+</code></pre>
+<h1 id="mermaid-sources">mermaid sources</h1>
 <ul>
-<li>se su dir1 ci sono 2 file (file1, file2)</li>
-<li>e su dir 2 ci sono 3 file (file1, file3, file4)</li>
+<li>github.com/fralau/mkdocs-mermaid2-plugin</li>
+<li>mermaid.js.org/ecosystem/integrations.html#document-generation</li>
+<li>cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js</li>
 </ul>
-<p>Un perfetto mirror sarebbe quello di cancellare file3 e file4 e salvare il file2 in modo da avere entrambe le cartelle che contengono gli stessi file.</p>
-<h2 id="mirror-backup">Mirror backup</h2>
-<pre><code class="language-bash">rsync -v -progress -a --delete ./dir1/ ./dir2 
-
-# --delete       questo comando cancella i file nella dir2 che non sono presenti nella dir1
-</code></pre>
-<h2 id="shortcut">Shortcut</h2>
-<p>Il comando sopra può essere scritto anche in questo modo:</p>
-<pre><code class="language-bash">rsync -vPa --delete ./dir1/ ./dir2     
-</code></pre>
-<h2 id="come-controllare-prima-di-fare-modifiche">Come controllare prima di fare modifiche</h2>
-<p>Basta aggiungere una "-n". In questo modo non verranno eseguite modifiche nella cartella destinazione.</p>
-<pre><code class="language-bash">rsync -nvPa --delete ./dir1/ ./dir2     
-</code></pre>
-<h2 id="come-ignorare-il-backup-di-certi-file-o-cartelle">Come ignorare il backup di certi file o cartelle</h2>
-<p>Ci sono 2 opzioni per fare questo.</p>
-<pre><code class="language-bash"># --exclude=PATTERN       exclude files matching PATTERN
-# --exclude-from=FILE     read exclude patterns from FILE
-</code></pre>
-<h3 id="-exclude">--exclude</h3>
-<pre><code class="language-bash">rsync -vPa --delete --exclude={"file1.txt","dir1/*","dir2"} ./dir1/ ./dir2
-
-# "file1.txt"        won't copy file1.txt
-# "dir1/*"           will copy dir1, but not it's content
-# "dir2"             won't copy the whole dir2
-</code></pre>
-<h3 id="-exclude-from">--exclude-from</h3>
-<p>This is maybe stupid, but also a sort of hack.</p>
-<pre><code class="language-bash">EXCLUDES_NODE=$(echo -e 'node_modules')
-EXCLUDES_ANDROID=$(echo -e 'build\n.idea\n*.apk')
-EXCLUDES_RUST=$(echo -e 'target')
-EXCLUDES_ALL=$(echo -e "$EXCLUDES_NODE\n$EXCLUDES_ANDROID\n$EXCLUDES_RUST")
-
-rsync -vPa --delete --exclude-from=&lt;(printf "%s" "$EXCLUDES_ALL") ./dir1/ ./dir2
-</code></pre>
 <br id="parse-me-away"/>
 </div>
 </body>

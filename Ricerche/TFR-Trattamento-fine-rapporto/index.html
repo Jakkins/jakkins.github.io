@@ -17,7 +17,7 @@
 <script src="/js/nav.js"></script>
 <script src="/search/main.js"></script>
 <title>
-		Archives
+		TFR - Trattamento fine rapporto (liquidazione)
 	</title>
 </head>
 <body>
@@ -203,21 +203,37 @@
 </li>
 </ul>
 </nav> <div class="content" id="page_content">
-<h1 id="archives">Archives</h1>
-<p>Questa sezione non ho ancora idea di come organizzarla ma conterrà i link per collegarsi a tutti quei siti che si occupano di archiviare informazioni.
-Qualche esempio?</p>
+<h1 id="tfr-trattamento-fine-rapporto-liquidazione">TFR - Trattamento fine rapporto (liquidazione)</h1>
+<div class="mermaid">graph LR
+        TFR--&gt;id1[Fondo Pensione];
+        TFR--&gt;azienda[Azienda];
+        azienda--&gt;id3[Erogazione immediata e completa];
+        azienda--&gt;id4[Teoricamente non ha vincoli temporali]
+        azienda--&gt;id5[Tassazione più alta]
+        azienda--&gt;id6[In caso di fallimento dell'azienda &lt;br&gt; esiste un fondo garanzia istituito dall'INPS, &lt;br&gt; ma ti fidi?];
+</div>
 <ul>
-<li><a href="https://sp0.gitbook.io/main/">il mio vecchio sito dove mettevo la documentazione</a></li>
-<li><a href="https://libgen.onl/library-genesis/#Library_Genesis_Proxy_Mirror_Websites">libgen</a><ul>
-<li><a href="https://it.wikipedia.org/wiki/Library_Genesis">cos'è libgen</a></li>
+<li><a href="https://www.inps.it/it/it/dettaglio-scheda.schede-servizio-strumento.schede-servizi.50186.fondo-di-garanzia-del-tfr-e-dei-crediti-di-lavoro.html">Anche in caso di fallimento dell'azienda, ma non solo</a></li>
+<li>il datore di lavoro è obbligato per legge a mettere da parte questa somma (TFR annuale === 6,91% della RAL)</li>
+<li>il TFR lo hanno solo i dipendenti<ul>
+<li>P.IVA non lo hanno</li>
 </ul>
 </li>
-<li><a href="https://pubmed.ncbi.nlm.nih.gov/">pubmed</a></li>
-<li><a href="https://archive.org/projects/">archive.org</a></li>
-<li><a href="https://wiki.archlinux.org/title/List_of_applications">archlinux - app list</a></li>
+<li>per ora il problema, in questo contesto, dell'Italia, è l'INPS<ul>
+<li>23 milioni di lavoratori che pagano le tasse su 60 milioni di persone</li>
+</ul>
+</li>
+</ul>
+<h2 id="domande">Domande</h2>
+<h1 id="sources">Sources</h1>
+<ul>
+<li>www.youtube.com/watch?v=N0N3LjZSLEU</li>
 </ul>
 <br id="parse-me-away"/>
 </div>
-</body>
+<script>mermaid.initialize({
+    theme: "neutral",
+    startOnLoad: true
+});</script></body>
 <script src="https://unpkg.com/mermaid@8.7.0/dist/mermaid.min.js"></script>
 </html>
