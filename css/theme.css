@@ -12,6 +12,7 @@
     "Noto Mono", "Inconsolata", "Source Code Pro", "SF Mono", monospace;
   font-size: 18px;
   font-style: normal;
+  font-weight: lighter;
 }
 
 html,
@@ -70,6 +71,11 @@ blockquote p,
 blockquote strong em,
 blockquote p strong em {
   color: rgb(242, 255, 103);
+}
+
+em {
+  font-style: italic;
+  color: rgb(194, 193, 255);
 }
 
 ul {

@@ -392,7 +392,7 @@ C'è un <a href="https://www.youtube.com/watch?v=qE77MbDnljA">ottimo video</a> c
 </code></pre>
 <p>Unico problema, questo comando non cancella i file, ovvero non fa un perfetto mirror della cartella sorgente, ovvero:</p>
 <ul>
-<li>se se di1 ci sono 2 file (file1, file2)</li>
+<li>se su dir1 ci sono 2 file (file1, file2)</li>
 <li>e su dir 2 ci sono 3 file (file1, file3, file4)</li>
 </ul>
 <p>Un perfetto mirror sarebbe quello di cancellare file3 e file4 e salvare il file2 in modo da avere entrambe le cartelle che contengono gli stessi file.</p>
@@ -401,7 +401,8 @@ C'è un <a href="https://www.youtube.com/watch?v=qE77MbDnljA">ottimo video</a> c
 
 # --delete       questo comando cancella i file nella dir2 che non sono presenti nella dir1
 </code></pre>
-<h2 id="il-comando-sopra-puo-essere-scritto-anche-in-questo-modo">Il comando sopra può essere scritto anche in questo modo</h2>
+<h2 id="shortcut">Shortcut</h2>
+<p>Il comando sopra può essere scritto anche in questo modo:</p>
 <pre><code class="language-bash">rsync -vPa --delete ./dir1/ ./dir2     
 </code></pre>
 <h2 id="come-controllare-prima-di-fare-modifiche">Come controllare prima di fare modifiche</h2>
