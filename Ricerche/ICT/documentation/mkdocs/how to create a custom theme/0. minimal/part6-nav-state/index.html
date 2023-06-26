@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<script>
+		// have to put this to make search plugin works
+		let base_url = "";
+	</script>
+<!-- -->
+<link href="../../../../../../../highlight/styles/default.min.css" rel="stylesheet"/>
+<link href="../../../../../../../css/theme.css" rel="stylesheet"/>
+<link href="../../../../../../../css/search.css" rel="stylesheet"/>
+<script src="/js/clipboard.min.js"></script>
+<script src="/highlight/highlight.min.js"></script>
+<script src="/js/theme.js"></script>
+<script src="/js/nav.js"></script>
+<script src="/search/main.js"></script>
+<!-- mermaid2 -->
+<script src="https://unpkg.com/mermaid@8.7.0/dist/mermaid.min.js"></script>
+<title>6 - Nav State</title>
+</head>
+<body>
+<nav>
+<div class="search-container">
+<input class="search-input" id="mkdocs-search-query" placeholder="Clicca per cercare!" type="text"/>
+<div class="search-results" id="mkdocs-search-results"></div>
+</div>
+<ul class="nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../">J</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Manifests/">Manifests</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../SFC%20Radio/">SFC Radio</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Sincronizzazione/">Sincronizzazione</a>
+</li>
+<li class="section noselect" id="section">
+<span>Liste</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/">Index</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/000-noisy-flow/">Noisy Flow</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/hacklab/">Hacklabs</a>
+</li>
+<li class="section noselect" id="section">
+<span>Archives</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/Archives/">Archives</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/Archives/Libraries/">Libraries</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Informations</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/Informations/journalists/">Journalists</a>
+</li>
+<li class="section noselect" id="section">
+<span>ICT</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/Informations/ICT/">ICT</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/Informations/ICT/utils/">Utils</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Manuali</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/Manuali/Sicurezza/">Sicurezza (in qualsiasi ambito)</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Strumenti</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/Strumenti/Index/">Not Catalogued</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/Strumenti/Privacy/">Strumenti per la privacy</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/Strumenti/Temporary%20emails/">Temporary emails</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/Strumenti/write-documentations/">Documentation tools</a>
+</li>
+<li class="section noselect" id="section">
+<span>ICT</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/Strumenti/ICT/firewall/">Firewalls</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/Strumenti/ICT/osint/">Osint</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/Strumenti/ICT/utils/">utils</a>
+</li>
+<li class="section noselect" id="section">
+<span>Cybersec</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Liste/Strumenti/ICT/Cybersec/">Cybersecurity</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Montelago</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Montelago/">Montelago</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Ricerche</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/">Index</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/hot-to-be-a-developer/">how to be a developer</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/roba%20a%20caso/">Roba a caso</a>
+</li>
+<li class="section noselect" id="section">
+<span>Burocrazia</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/Burocrazia/TFR-Trattamento-fine-rapporto/">TFR - Trattamento fine rapporto (liquidazione)</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/Burocrazia/cose-su-cui-riflettere/">Cose su cui riflettere</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/Burocrazia/frazionamento-locale/">Frazionamento dello spazio di un locale</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/Burocrazia/rca-auto-assicurazioni/">RCA ed assicurazioni auto</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>DIY</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/DIY/">Do It Yourself</a>
+</li>
+<li class="section noselect" id="section">
+<span>Investimenti</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/DIY/investimenti/">Investimenti</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Orto</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/DIY/orto/parassiti/">parassiti</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/DIY/orto/sources/">ricerche possibili su internet</a>
+</li>
+<li class="section noselect" id="section">
+<span>Piante</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/DIY/orto/piante/basilico/">basilico</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Una casa, una cabina, qualcosa</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/DIY/una%20casa%2C%20una%20cabina%2C%20qualcosa/">index</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Viaggi</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/DIY/viaggi/dormire/">Dormire</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/DIY/viaggi/mezzi/">Italia</a>
+</li>
+<li class="section noselect" id="section">
+<span>Esempi</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/DIY/viaggi/esempi/liquicity%20festival%202023/">Liquicity festival 2023</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/DIY/viaggi/esempi/rock%20in%20roma%202023/">rock in roma 2023</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>ICT</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/docker/">Docker</a>
+</li>
+<li class="section noselect" id="section">
+<span>000   cheatsheets</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/000%20-%20cheatsheets/git/">Cheatsheet</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/000%20-%20cheatsheets/wsl/">Windows Subsystem for Linux (WSL)</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>001   shortcuts</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/001%20-%20shortcuts/firefox/">Firefox</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>IDEs</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="section noselect" id="section">
+<span>VSCode</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/IDEs/VSCode/plugins/">VSCode plugins</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/IDEs/VSCode/tips%26tricks/">Tips and Tricks</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Q&amp;A</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/Q%26A/">Q&amp;A</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/Q%26A/ma-come-cazzo-fa-shodan/">Ma come fa Shodan a scannerizzare le porte senza essere bloccato?</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Android</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/android/start-app-at-bootup/">Start app at boot up</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Databases</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/databases/sql/">Some sql code</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Documentation</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/documentation/programmi%20per%20la%20documentazione/">programmi per creare la documentazione</a>
+</li>
+<li class="section noselect" id="section">
+<span>Mkdocs</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/documentation/mkdocs/automatic%20deploy%20in%20github/">Automatic deploy in github</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/documentation/mkdocs/install-some-plugins/">How to install some plugins</a>
+</li>
+<li class="section noselect" id="section">
+<span>How to create a custom theme</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="section noselect" id="section">
+<span>0. minimal</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/documentation/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part1-how-to-create-a-custom-theme/">1 - How to create a custom theme</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/documentation/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part2-add-some-css/">2 - css to style layout</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/documentation/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part3-add-lateral-dir-tree/">3 - Near a wholesome documentation</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/documentation/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part4-jinja2/">4 - Jinja2</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/documentation/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part5-finish-this/">5 - MkDocs css, js, styles and things</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/documentation/mkdocs/how%20to%20create%20a%20custom%20theme/0.%20minimal/part6-nav-state/">6 - Nav State</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Howto</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/howto/come-cercare-un-file-che-contiene-una-certa-parola/">Come cercare un file che contiene una certa parola</a>
+</li>
+<li class="section noselect" id="section">
+<span>Git</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/howto/git/come-creare-chiave-per-git/">Come creare ed usare una chiave ssh per git</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Languages</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="section noselect" id="section">
+<span>Bash</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/bash/grep/">grep</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Java</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/java/run-async/">Run async functions</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/java/run-shell-command/">How to run shell commands</a>
+</li>
+<li class="section noselect" id="section">
+<span>Date utilities</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/java/date%20utilities/appunti/">Appunti grezzi</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Hibernate</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/java/hibernate/map-date-in-db/">Mappare le date</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Mock http, mockito</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/java/mock%20http%2C%20mockito/mock-http-request/">Mock HTTP request</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/java/mock%20http%2C%20mockito/mock-void-method/">Mock void method of a class</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/java/mock%20http%2C%20mockito/mock-with-mockito/">Mock with Mockito</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Kotlin</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="section noselect" id="section">
+<span>TornadoFX</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/kotlin/TornadoFX/">TornadoFX</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/kotlin/TornadoFX/dinamically-add-from-controller/">Add Labels dinamcally from controller</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/kotlin/TornadoFX/graphics-tricks-code/">Codici strani che forse un giorno capirò</a>
+</li>
+<li class="section noselect" id="section">
+<span>Setup a project</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/kotlin/TornadoFX/Setup%20a%20project/000-setup-gradle-kotlin-tordadofx-project/">Setup basic gradle project</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/kotlin/TornadoFX/Setup%20a%20project/001-dark-mode/">Dark mode theme</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/kotlin/TornadoFX/Setup%20a%20project/002-full-proj-until-now/">Full project until now</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Node</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/node/wrap%20into%20executable/">Wrap into executable</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Python</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/">Index</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/000-basics-conf/">Impostazioni di base</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/001-keywords/">Keywords</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/compile-python-to-executable/">Compile to executable file</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/create-library/">Create a library</a>
+</li>
+<li class="section noselect" id="section">
+<span>GUI</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/GUI/">GUI with Python</a>
+</li>
+<li class="section noselect" id="section">
+<span>Pysimplegui</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/GUI/pysimplegui/">PySimpleGUI</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/GUI/pysimplegui/000-tabs/">Tabs</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Setup Projects</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/Setup%20Projects/000-simple-minimal-proj/">Setup simple minimal project</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Fast start</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/fast-start/000-main/">Main</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Libraries</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/libraries/configparser/">Best practices to import a config file</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/libraries/json/">Parse json</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/libraries/metaclass-interfacce-in-python/">Interfacce in python</a>
+</li>
+<li class="section noselect" id="section">
+<span>Argparse</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/libraries/argparse/">ArgumentParser</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Beautifulsoup4</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="section noselect" id="section">
+<span>Parse xml</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/libraries/beautifulsoup4/parse%20xml/">Parse XML with Beautiful Soup 4</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Curses</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/libraries/curses/double-panel-example/">double panel example</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/libraries/curses/list-services-status/">list custom services status</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/libraries/curses/sources/">sources</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Request</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/libraries/request/example-with-format/">Example with format</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Sqlite3</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/libraries/sqlite3/">Index</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/libraries/sqlite3/000-basic-setup/">Basic setup</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/libraries/sqlite3/001-organize-in-class/">Organizzare il db in una classe</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/libraries/sqlite3/002-migration-code/">How to migrate</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Logging</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/logging/minimal-logger-class-impl/">Minimal log class implementation</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Os</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/os/git-clone-from-gitlab/">Git clone from Gitlab</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/languages/python/os/search-word-in-dir/">Search a word inside all files of a dir</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Projects</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/projects/">How to setup a project</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/projects/extract-urls-from-website/">Extract URLs from website</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Sistemi operativi e kernel</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="section noselect" id="section">
+<span>Android</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/sistemi%20operativi%20e%20kernel/android/must-have-apps/">MVP apps</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Linux</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/sistemi%20operativi%20e%20kernel/linux/grep/">grep</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/sistemi%20operativi%20e%20kernel/linux/proxychain/">Proxychain</a>
+</li>
+<li class="section noselect" id="section">
+<span>QA</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/sistemi%20operativi%20e%20kernel/linux/QA/">Questions/Answers</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Distro</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="section noselect" id="section">
+<span>Arch linux</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/sistemi%20operativi%20e%20kernel/linux/distro/arch%20linux/000-pacman-basics/">Pacman basics</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/sistemi%20operativi%20e%20kernel/linux/distro/arch%20linux/002-install-from-aur/">Install package from AUR</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>How to</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/sistemi%20operativi%20e%20kernel/linux/how%20to/">Index</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/sistemi%20operativi%20e%20kernel/linux/how%20to/000-mirror-local-backup/">How to configure a mirror local backup</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/sistemi%20operativi%20e%20kernel/linux/how%20to/001-install-downloaded-package/">Install downloaded general linux package</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/sistemi%20operativi%20e%20kernel/linux/how%20to/rsync/">rsync</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Ps1</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/sistemi%20operativi%20e%20kernel/linux/ps1/">PS1</a>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Systemd</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/sistemi%20operativi%20e%20kernel/linux/systemd/list-services/">List Services</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/sistemi%20operativi%20e%20kernel/linux/systemd/schedule-a-service/">Schedule a service</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="section noselect" id="section">
+<span>Windows</span>
+</li>
+<li class="children">
+<ul class="sub-nav">
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/sistemi%20operativi%20e%20kernel/windows/usare-x11-app/">Usare le applicazioni x11 su Windows</a>
+</li>
+<li class="nav-page">
+<a class="noselect" href="../../../../../../../Ricerche/ICT/sistemi%20operativi%20e%20kernel/windows/wsl/">WSL</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav> <div class="content" id="page_content">
+<h1 id="6-nav-state">6 - Nav State</h1>
+<h2 id="what-is-happening">What is happening?</h2>
+<p>Now we setted every page to be an <code>&lt;a href:"..."&gt;</code> element.
+In static page generation it's normal to reset the state on every refresh.</p>
+<ul>
+<li>Do MkDocs have something to help with this behaviour?</li>
+<li>https://github.com/squidfunk/mkdocs-material</li>
+</ul>
+<h3 id="ideas">Ideas</h3>
+<ul>
+<li>mkdocs nav collapse on page change</li>
+<li>mkdocs refresh content without reload page</li>
+</ul>
+<h2 id="solution-1-chatgpt-solved-this-with-an-embarrassing-solution">Solution 1 - ChatGPT solved this with an embarrassing solution</h2>
+<p>I can call my site with a <code>XMLHttpRequest</code> and get the page than parse it to get only the content.</p>
+<p>So I changed the <code>index.html</code> </p>
+<pre><code class="language-diff">&lt;div id="page_content" class="content"&gt;
+    {{ page.content }}
++   &lt;br id="parse-me-away"/&gt;
+&lt;/div&gt;
+</code></pre>
+<h3 id="indexjs">index.js</h3>
+<pre><code class="language-javascript">window.addEventListener("load", function (event) {
+  let pages_nodelist = this.document.getElementsByClassName("nav-page");
+  for (var i = 0, len = pages_nodelist.length; i &lt; len; i++) {
+    pages_nodelist[i].addEventListener(
+      "click",
+      function (event) {
+        let page_content = document.getElementById("page_content");
+        page_content.innerHTML = "";
+        var xhr = new XMLHttpRequest(); // create new XMLHttpRequest object
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === 4 &amp;&amp; xhr.status === 200) {
+            let content = xhr.responseText.split(
+              '&lt;div id="page_content" class="content"&gt;'
+            )[1];
+            content = content.split("&lt;br id=\"parse-me-away\"/&gt;")[0]
+            document.getElementById("page_content").innerHTML = content; // update DOM with response
+            hljs.highlightAll();
+          }
+        };
+        let a_el_page = event.target.firstElementChild; // HTMLAnchorElement
+        xhr.open("GET", a_el_page.pathname, true); // open the request with the GET method
+        xhr.send(); // send the request
+      },
+      false
+    );
+  }
+});
+</code></pre>
+<blockquote>
+<p>Is it a shitty solution? yes.</p>
+<p>Am I content with it? yes.</p>
+<p>Am I going to find another solution? no.</p>
+<p><strong><em>THE END</em></strong></p>
+</blockquote>
+<p>P.S. I did find a better solution :3</p>
+<br id="parse-me-away"/>
+</div>
+</body>
+</html>
