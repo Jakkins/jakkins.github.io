@@ -3,7 +3,6 @@
 ## backup command
 
 This command will mirror content of dir1 into dir2.
-For more information check [here](../../../../../../docs/Ricerche/ICT/sistemi%20operativi%20e%20kernel/linux/how%20to/rsync.md).
 
 ```bash
 rsync -vPa --delete --exclude={"node_modules","build",".idea","*.apk","target"} ./dir1/ ./dir2

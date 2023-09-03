@@ -6,4 +6,4 @@ Bhe, adesso lo conoscete (basta aprire il link e leggere...), quindi adesso cono
 
 <br>
 
-[Noisy Flow](../../docs/Liste/000-noisy-flow.md) è una sezione speciale che posso aggiornare anche da cellulare che contiene una lista di tutti i link che mi hanno interessato/incuriosito/ispirato.
+Noisy Flow è una sezione speciale che posso aggiornare anche da cellulare che contiene una lista di tutti i link che mi hanno interessato/incuriosito/ispirato.

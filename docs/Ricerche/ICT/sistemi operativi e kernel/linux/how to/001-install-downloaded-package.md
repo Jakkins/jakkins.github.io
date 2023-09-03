@@ -10,8 +10,6 @@ sudo ln -s /usr/local/programs/idea-IC-222.4345.14/bin/idea.sh /usr/local/bin/
 
 ## How to install in /usr/local/
 
-- [Where should I install my package?](../../../../../../docs/Ricerche/ICT/sistemi%20operativi%20e%20kernel/linux/QA/index.md#where-should-i-install-my-program)
-
 For example I just downloaded Intellij (an IDE to program with) and I want to make it available to everyone.
 
 ```bash
@@ -24,9 +22,6 @@ sudo ln -s $(pwd)/idea.sh /usr/local/bin/     # MUST: use absolute path
 # if you want to give another name
 sudo ln -s $(pwd)/idea.sh /usr/local/bin/intellij
 ```
-
-- [What is `ln -s`](../../../../../../docs/Ricerche/ICT/sistemi%20operativi%20e%20kernel/linux/QA/index.md#what-is-a-soft-link-ln-s)
-- [How to update a soft link](../../../../../../docs/Ricerche/ICT/sistemi%20operativi%20e%20kernel/linux/QA/index.md#how-to-update-a-soft-link)
 
 ## Sources
 
