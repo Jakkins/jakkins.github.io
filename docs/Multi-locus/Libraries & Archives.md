@@ -1,3 +1,9 @@
+# Libraries
+
+## [annas-archive](https://annas-archive.org/)
+
+Libreria, gigante e gratuita.
+
 # Archives
 
 Questa sezione non ho ancora idea di come organizzarla ma conterrà i link per collegarsi a tutti quei siti che si occupano di archiviare informazioni.

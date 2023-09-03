@@ -20,7 +20,7 @@ Finisce alle 4 di mattina di domenica... BEEENEEE...
 Il camp chiude alle 14.
 Wow ci sono dei prezzi che non mi aspettavo...
 
-![1a74db12052068c7d01477d914330ebe.png](../../../../../_resources/1a74db12052068c7d01477d914330ebe.png)
+![1a74db12052068c7d01477d914330ebe.png](../../../../_resources/1a74db12052068c7d01477d914330ebe.png)
 
 # prices
 
@@ -37,7 +37,7 @@ L'unico studio che ha senso fare per questo viaggio sono sulle compagnie di Ryan
 
 Wikipedia fornisce informazioni interessanti al riguardo.
 
-![9b3b31d8c9da819cb4f1072d6495295f.png](../../../../../_resources/9b3b31d8c9da819cb4f1072d6495295f.png)
+![9b3b31d8c9da819cb4f1072d6495295f.png](../../../../_resources/9b3b31d8c9da819cb4f1072d6495295f.png)
 
 ### consumi per aereo
 
@@ -45,8 +45,8 @@ Il consumo degli aerei va a kg/h e per fare la conversione a litri bisogna avere
 In pratica se hai 2400 kg/h prendi solo la parte dei kg (2400) e la dividi per la densita' della sostanza ma facendo attenzione che la densita' sia espressa in chilogrammi al decimetro cubo (`kg/dm^3`). [source](https://www.youmath.it/domande-a-risposte/view/8490-kg-in-litri.html)
 Ho notato che alcuni invece di usare `kg/dm^3` usano direttamente la dicitura `kg/l`.
 
-![a411e351dfad7185e599016039959d94.png](../../../../../_resources/a411e351dfad7185e599016039959d94.png)
-![3cea4d3a5fa193f3bb926183258f6d6d.png](../../../../../_resources/3cea4d3a5fa193f3bb926183258f6d6d.png)
+![a411e351dfad7185e599016039959d94.png](../../../../_resources/a411e351dfad7185e599016039959d94.png)
+![3cea4d3a5fa193f3bb926183258f6d6d.png](../../../../_resources/3cea4d3a5fa193f3bb926183258f6d6d.png)
 
 Quindi `2400 / densita'` si ottenere il volume espresso in litri ed ora si riaggiungono le ore: litri/ora.
 
@@ -102,9 +102,9 @@ Torino -> Amsterdam
 ### fonti per la densita'
 
 - <https://www.smartcockpit.com/docs/A320-Fuel.pdf/>
-    - ![d4123e7b55ccdf7823de96653dc3badf.png](../../../../../_resources/d4123e7b55ccdf7823de96653dc3badf.png)
+    - ![d4123e7b55ccdf7823de96653dc3badf.png](../../../../_resources/d4123e7b55ccdf7823de96653dc3badf.png)
 - <https://www.quora.com/How-much-fuel-is-consumed-by-an-Airbus-A320-over-1000-kilometers/>
 
 # notes
 
-![ac5ce246ba9706ac08584d4b81eef568.png](../../../../../_resources/ac5ce246ba9706ac08584d4b81eef568.png)
+![ac5ce246ba9706ac08584d4b81eef568.png](../../../../_resources/ac5ce246ba9706ac08584d4b81eef568.png)

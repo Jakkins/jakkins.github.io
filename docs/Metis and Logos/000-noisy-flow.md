@@ -1,5 +1,7 @@
 # Noisy Flow
 
+Noisy Flow è una sezione speciale che posso aggiornare anche da cellulare che contiene una lista di tutti i link che mi hanno interessato/incuriosito/ispirato.
+
 <div id="noisy-flow-content"></div>
 
 <script>
