@@ -2,3 +2,5 @@
 
 ![thorfinn.jpg](../../_resources/thorfinn.jpg)
 
+![RoadToShambala.jpg](../../_resources/RoadToShambala.jpg)
+
