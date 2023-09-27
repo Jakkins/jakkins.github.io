@@ -1,3 +1,5 @@
+# arch - wayland - hyprland
+
 # stage 1
 
 ```bash
@@ -111,7 +113,7 @@ curl -o /etc/pacman.d/mirrorlist https://archlinux.org/mirrorlist/all/
 
 ### install arch-linux
 
-```bashi
+```bash
 lsblk      # look for the partitions position and name  
  
 mount /dev/nvme0n1p2 /mnt                  # mount /root 
