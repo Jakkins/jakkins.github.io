@@ -193,6 +193,7 @@ poweroff     # OR sudo shutdown -h now
 
 ```bash
 sudo pacman -S hyprland
+Hyprland
 ```
 
 
