@@ -1,20 +1,32 @@
+# update script
+
 ```bash
 #!/usr/bin/env bash
-# update-joplin-jakkins
 
+script_name=update-joplin-jakkins
 git_user_name=Jakkins
 git_project_name=jakkins.github.io
 default_proj_path=~/$git_project_name
 main_branch=origin/main
+
+#
+# sources
+# - https://www.youtube.com/watch?v=CPjOLq2FjsQ
+# - https://joplinapp.org/terminal/
+#
+
+#
+# FUNCTIONS
+# 
 
 function error_exit() {
     echo "Error: $1"
     exit 1
 }
 
-function yes_or_no {
+function yes_or_no() {
     while true; do
-        read -p "$* [y/n]: " yn
+        read -ep "$* [y/n]: " yn
         case $yn in
             [Yy]*) return 0  ;;  
             [Nn]*) echo "Aborted" ; return 1 ;;
@@ -77,10 +89,89 @@ function export_docs_from_local () {
     fi
 }
 
-load_project_ifnot_present
-docs_repo_size=$(echo $(du -s $default_proj_path/docs) | cut -d" " -f1)
-export_docs_from_local
-echo $docs_repo_size
-echo $docs_local_size
-if [ "$docs_repo_size" -gt "$docs_local_size" ]; then sync_local_with_remote; else sync_remote_with_local; fi
+automatic_sync() {
+	load_project_ifnot_present
+	docs_repo_size=$(echo $(du -s $default_proj_path/docs) | cut -d" " -f1)
+	export_docs_from_local
+	echo $docs_repo_size
+	echo $docs_local_size
+	if [ "$docs_repo_size" -gt "$docs_local_size" ]; then sync_local_with_remote; else sync_remote_with_local; fi
+}
+
+print_usage() {
+	clear
+	echo "Usage:"
+	echo "	automatic sync    -> $script_name -a"
+	echo "	use the menu      -> $script_name "
+	read -ep "Press Enter to continue..."
+}
+
+show_menu() {
+    clear
+    echo "ujj (update-joplin-jakkins)"
+    echo "1. automatic sync"
+    echo "2. export docs notebook"
+    echo "3. delete docs notebook"
+    echo "4. Quit"
+}
+
+get_path() {
+    while true; do
+		echo "Enter a path:"
+		read -e user_path
+		if [ -d "$user_path" ]; then
+			# path exists and is a directory
+			break
+		else
+			echo "The path should point to a dir."
+			echo ""
+		fi
+    done
+}
+
+perform_action() {
+    case $choice in
+        1)
+            echo "automatic sync"
+            automatic_sync
+            ;;
+        2)
+            echo "export docs notebook"
+			get_path
+			rm -vrf $user_path/docs-local
+			echo "exporting documentation to $user_path/docs-local dir"
+			joplin export $user_path/docs-local --format md --notebook docs
+            ;;
+        3)
+            echo "delete docs notebook"
+			joplin rmbook docs
+            ;;
+        4)
+            clear
+            exit 0
+            ;;
+        *)
+            echo "Invalid choice, please try again."
+            ;;
+    esac
+}
+
+#
+# CODE
+#
+
+if [ -n "$1" ]; then
+    if [ "$1" = "-a" ]; then
+		automatic_sync
+	else
+		print_usage
+	fi
+else
+    while true; do
+		show_menu
+		read -ep "Enter your choice (1-4): " choice
+		perform_action
+		read -ep "Press Enter to continue..."
+	done
+fi
 ```
