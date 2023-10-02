@@ -6,7 +6,10 @@
 where.exe java
 # C:\Users\username\.jdks\semeru-18.0.2\bin\java.exe
 
-# 1. download java
+# sdkmanager use openjdk version "1.8.0_252"
+# aka Java 8
+
+# 1. download java 8
 # https://jdk.java.net/21/
 
 # 2. set env var
