@@ -123,4 +123,4 @@ jobs:
 > "mkdocs gh-deploy"  will deploy in a branch named "gh-pages"
 > so you have to load the pages from this branch
 
-![2e701ddf8f4ded6fc88bbe89f525935a.png](../../../../../_resources/2e701ddf8f4ded6fc88bbe89f525935a.png)
+![2e701ddf8f4ded6fc88bbe89f525935a.png](../../../../../../_resources/2e701ddf8f4ded6fc88bbe89f525935a.png)

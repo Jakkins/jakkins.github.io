@@ -1,6 +1,6 @@
 # android studio 
 
-## install an AndroidSDK
+## install AndroidSDK linux
 
 ```bash
 which java
@@ -36,5 +36,22 @@ export NDK_HOME="$ANDROID_HOME/android-ndk-r26"
 
 source ~/.bashrc
 ```
+
+# AndroidSDK on Windows
+
+```bash
+echo $env:ANDROID_HOME
+# C:\Users\username\AppData\Local\Android\Sdk
+echo $env:NDK_HOME
+# C:\Users\username\AppData\Local\Android\Sdk\ndk\25.1.8937393
+```
+
+
+
+
+
+
+
+
 
 

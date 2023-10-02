@@ -94,7 +94,7 @@ extra_css:
 
 ### Example until now
 
-![mkdocs-theme-init](../../../../../../../_resources/mkdocs-theme-init.png)
+![mkdocs-theme-init](../../../../../../../../_resources/mkdocs-theme-init.png)
 
 ### better index.css
 

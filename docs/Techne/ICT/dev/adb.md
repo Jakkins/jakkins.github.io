@@ -24,6 +24,18 @@ sudo adb kill-server
 sudo adb devices
 ```
 
+# utils
+
+```bash
+adb shell getprop
+adb shell getprop ro.product.cpu.abi
+```
+
+
+
+
+
+
 
 
 
