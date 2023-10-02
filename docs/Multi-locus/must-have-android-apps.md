@@ -1,4 +1,4 @@
-# MVP apps
+# MVP Android Apps
 
 ## 1. FDroid
 
