@@ -10,6 +10,11 @@ default_proj_path=~/$git_project_name
 main_branch=origin/main
 
 #
+# IDEAS:
+# - just watch the last commit
+#
+
+#
 # sources
 # - https://www.youtube.com/watch?v=CPjOLq2FjsQ
 # - https://joplinapp.org/terminal/
@@ -35,20 +40,22 @@ function yes_or_no() {
 }
 
 function sync_with_remote () {
+    echo "sync_with_remote"
     cd $default_proj_path
-	git config --local pull.rebase true
-	git config --local user.email "none"
+    git config --local user.email "none"
     git config --local user.name $git_user_name
-    git fetch --all					|| error_exit "sync_with_remote failed"
+    git config --local pull.rebase true
+    git fetch --all                 || error_exit "sync_with_remote failed"
     git reset --hard $main_branch   || error_exit "sync_with_remote failed"
     git clean -df
 }
 
 function load_project_ifnot_present () {
     if [ ! -d $default_proj_path ]; then
+        echo "cloning the docs from remote"
         git clone https://github.com/$git_user_name/$git_project_name.git $default_proj_path || error_exit "load_project_ifnot_present, git clone failed"
-	else
-		sync_with_remote
+    else
+        sync_with_remote
     fi
 }
 
@@ -62,7 +69,7 @@ function sync_local_with_remote () {
 }
 
 function sync_remote_with_local () {
-	# get the local docs and push it to remote
+    # get the local docs and push it to remote
     echo "sync_remote_with_local"
     find -name '-1' -delete
     mv $default_proj_path/docs-local/_resources/* $default_proj_path/docs-local/docs/_resources/
@@ -71,10 +78,10 @@ function sync_remote_with_local () {
     mv $default_proj_path/docs-local/docs $default_proj_path/docs
     rm -rf $default_proj_path/docs-local
     cd $default_proj_path
-	printf "\n----------- start git status -----------\n\n"
-	git status
-	printf "\n------------ end git status ------------\n"
-	yes_or_no "Go ahead and push?" || exit 1
+    printf "\n----------- start git status -----------\n\n"
+    git status
+    printf "\n------------ end git status ------------\n"
+    yes_or_no "Go ahead and push?" || exit 1
     git add .
     git commit -m "update docs"
     git push origin
@@ -90,20 +97,20 @@ function export_docs_from_local () {
 }
 
 automatic_sync() {
-	load_project_ifnot_present
-	docs_repo_size=$(echo $(du -s $default_proj_path/docs) | cut -d" " -f1)
-	export_docs_from_local
-	echo $docs_repo_size
-	echo $docs_local_size
-	if [ "$docs_repo_size" -gt "$docs_local_size" ]; then sync_local_with_remote; else sync_remote_with_local; fi
+    load_project_ifnot_present
+    docs_repo_size=$(echo $(du -s $default_proj_path/docs) | cut -d" " -f1)
+    export_docs_from_local
+    echo $docs_repo_size
+    echo $docs_local_size
+    if [ "$docs_repo_size" -gt "$docs_local_size" ]; then sync_local_with_remote; else sync_remote_with_local; fi
 }
 
 print_usage() {
-	clear
-	echo "Usage:"
-	echo "	automatic sync    -> $script_name -a"
-	echo "	use the menu      -> $script_name "
-	read -ep "Press Enter to continue..."
+    clear
+    echo "Usage:"
+    echo "  automatic sync    -> $script_name -a"
+    echo "  use the menu      -> $script_name "
+    read -ep "Press Enter to continue..."
 }
 
 show_menu() {
@@ -117,15 +124,15 @@ show_menu() {
 
 get_path() {
     while true; do
-		echo "Enter a path:"
-		read -e user_path
-		if [ -d "$user_path" ]; then
-			# path exists and is a directory
-			break
-		else
-			echo "The path should point to a dir."
-			echo ""
-		fi
+        echo "Enter a path:"
+        read -e user_path
+        if [ -d "$user_path" ]; then
+            # path exists and is a directory
+            break
+        else
+            echo "The path should point to a dir."
+            echo ""
+        fi
     done
 }
 
@@ -137,14 +144,14 @@ perform_action() {
             ;;
         2)
             echo "export docs notebook"
-			get_path
-			rm -vrf $user_path/docs-local
-			echo "exporting documentation to $user_path/docs-local dir"
-			joplin export $user_path/docs-local --format md --notebook docs
+            get_path
+            rm -vrf $user_path/docs-local
+            echo "exporting documentation to $user_path/docs-local dir"
+            joplin export $user_path/docs-local --format md --notebook docs
             ;;
         3)
             echo "delete docs notebook"
-			joplin rmbook docs
+            joplin rmbook docs
             ;;
         4)
             clear
@@ -162,16 +169,16 @@ perform_action() {
 
 if [ -n "$1" ]; then
     if [ "$1" = "-a" ]; then
-		automatic_sync
-	else
-		print_usage
-	fi
+        automatic_sync
+    else
+        print_usage
+    fi
 else
     while true; do
-		show_menu
-		read -ep "Enter your choice (1-4): " choice
-		perform_action
-		read -ep "Press Enter to continue..."
-	done
+        show_menu
+        read -ep "Enter your choice (1-4): " choice
+        perform_action
+        read -ep "Press Enter to continue..."
+    done
 fi
 ```
