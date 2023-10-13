@@ -31,6 +31,19 @@ cp /etc/xdg/waybar/config ~/.config/waybar/config.jsonc     # yes, the 'c' is no
 cp /etc/xdg/waybar/style.css ~/.config/waybar/
 ```
 
+## request for remember last size and position
+
+https://github.com/hyprwm/Hyprland/issues/1543
+
+## style.css
+
+```css
+
+```
+
+
+
+
 
 
 
