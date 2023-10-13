@@ -16,3 +16,21 @@ sudo pacman -S gtkmm3 jsoncpp libsigc++ fmt wayland chrono-date spdlog gtk3 base
 killall waybar
 waybar
 ```
+
+## fonts
+
+```bash
+# icons
+sudo pacman -S ttf-font-awesome 
+```
+
+## set default conf
+
+```bash
+cp /etc/xdg/waybar/config ~/.config/waybar/config.jsonc     # yes, the 'c' is not an error
+cp /etc/xdg/waybar/style.css ~/.config/waybar/
+```
+
+
+
+
