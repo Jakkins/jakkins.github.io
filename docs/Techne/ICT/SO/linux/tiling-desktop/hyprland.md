@@ -10,6 +10,9 @@ vim .config/hypr/hyprland.conf
 
 ```bash
 hyprctl reload
+
+# or else
+# super + b or n
 ```
 
 ## brightness
