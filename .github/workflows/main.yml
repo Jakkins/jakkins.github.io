@@ -25,5 +25,7 @@ jobs:
       # Repository -> Settings -> Actions -> General -> Workflow permissions ==> select Read and write permissions
       - run: git config user.name 'github-actions[bot]' && git config user.email 'github-actions[bot]@users.noreply.github.com'
 
+      - run: mv assets/* docs/_resources/
+      
       - name: Build and deploy to GitHub Pages 🏗️ 🚀
         run: mkdocs gh-deploy --force
