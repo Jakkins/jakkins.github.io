@@ -3,10 +3,6 @@
 ```bash
 #!/usr/bin/env bash
 
-#
-# VARIABLES
-# 
-
 script_name=update-joplin-jakkins
 git_user_name=Jakkins
 git_project_name=jakkins.github.io
@@ -68,6 +64,15 @@ automatic_sync() {
             git push origin
         fi
     fi
+    if [ "$COUNT_AHEAD" -gt "0" ] && [ "$COUNT_BEHIND" == "0" ]; then
+        if [ "$COUNT_UNTRACKED" == "0" ] || [ "$COUNT_DELETED" == "0" ] || [ "$COUNT_MODIFIES" == "0" ] ; then
+            echo "pull and import"
+            git reset --hard $main_branch   || error_exit "git reset failed"
+            git clean -df
+            joplin rmbook docs
+            joplin import $git_proj_path/docs --format md --notebook docs
+        fi
+    fi
     if [ "$COUNT_BEHIND" -gt "0" ] && [ "$COUNT_AHEAD" == "0" ]; then
         if [ "$COUNT_UNTRACKED" -gt "0" ] || [ "$COUNT_DELETED" -gt "0" ] || [ "$COUNT_MODIFIES" -gt "0" ] ; then
             echo "local is behind but there are also some changes"
@@ -82,14 +87,6 @@ automatic_sync() {
         echo "pull"
         git reset --hard $main_branch   || error_exit "git reset failed"
         git clean -df
-    fi
-    if [ "$COUNT_AHEAD" -gt "0" ] && [ "$COUNT_BEHIND" == "0" ]; then
-        if [ "$COUNT_UNTRACKED" -gt "0" ] || [ "$COUNT_DELETED" -gt "0" ] || [ "$COUNT_MODIFIES" -gt "0" ] ; then
-            echo "pushing"
-            git add .
-            git commit -m "update docs"
-            git push origin
-        fi
     fi
     if [ "$COUNT_BEHIND" -gt "0" ] && [ "$COUNT_AHEAD" -gt "0" ]; then
         echo "you are a clown :3"
@@ -156,7 +153,7 @@ git config --local pull.rebase true
 git config --get remote.origin.url > /dev/null
 print_error_and_exit "origin does not exists"
 echo "fetching..."
-git fetch origin 2> /dev/null
+git fetch origin # do fetch but not pull
 print_error_and_exit "git fetch not successful: check connection, or update origin url"
 check_if_current_branch_is_main
 
