@@ -7,7 +7,7 @@ script_name=update-joplin-jakkins
 git_user_name=Jakkins
 git_project_name=jakkins.github.io
 git_proj_path=~/$git_project_name
-main_branch=origin/main
+main_branch=main
 
 #
 # FUNCTIONS
@@ -34,10 +34,6 @@ check_if_current_branch_is_main() {
 }
 
 automatic_sync() {
-    if [ ! -d $git_proj_path ]; then
-        echo "cloning the docs from remote"
-        git clone https://github.com/$git_user_name/$git_project_name.git $default_proj_path || error_exit "git clone failed"
-    fi
     # rm -rf ~/jakkins.github.io/docs
     rm -rf $git_proj_path/docs
     rm -rf $git_proj_path/_resources
@@ -61,7 +57,7 @@ automatic_sync() {
             echo "pushing"
             git add .
             git commit -m "update docs"
-            git push origin
+			git push --set-upstream origin $main_branch
         fi
     fi
     if [ "$COUNT_AHEAD" -gt "0" ] && [ "$COUNT_BEHIND" == "0" ]; then
@@ -146,6 +142,11 @@ show_menu() {
 # CODE
 #
 
+if [ ! -d $git_proj_path ]; then
+	echo "cloning the docs from remote"
+	git clone https://github.com/$git_user_name/$git_project_name.git $default_proj_path || error_exit "git clone failed"
+fi
+
 cd $git_proj_path
 git config --local user.email "none"
 git config --local user.name $git_user_name
@@ -172,7 +173,5 @@ else
     done
 fi
 ```
-
-
 
 
