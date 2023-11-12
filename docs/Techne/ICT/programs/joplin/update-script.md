@@ -33,6 +33,21 @@ check_if_current_branch_is_main() {
     fi
 }
 
+push() {
+    echo "pushing"
+    git add .
+    git commit -m "update docs"
+    git push --set-upstream origin $main_branch
+}
+
+pull() {
+    echo "pull and import"
+    git reset --hard $main_branch   || error_exit "git reset failed"
+    git clean -df
+    joplin rmbook docs
+    joplin import $git_proj_path/docs --format md --notebook docs
+}
+
 automatic_sync() {
     # rm -rf ~/jakkins.github.io/docs
     rm -rf $git_proj_path/docs
@@ -53,39 +68,41 @@ automatic_sync() {
     echo "untracked $COUNT_UNTRACKED | deleted $COUNT_DELETED | modify $COUNT_MODIFIES"
 
     if [ "$COUNT_BEHIND" == "0" ] && [ "$COUNT_AHEAD" == "0" ]; then
-        if [ "$COUNT_UNTRACKED" -gt "0" ] || [ "$COUNT_DELETED" -gt "0" ] || [ "$COUNT_MODIFIES" -gt "0" ] ; then
-            echo "pushing"
-            git add .
-            git commit -m "update docs"
-			git push --set-upstream origin $main_branch
+        if [ "$COUNT_UNTRACKED" == "0" ] && [ "$COUNT_DELETED" -gt "0" ] && [ "$COUNT_MODIFIES" == "0" ]; then
+            read -ep  "only deletes, do you want to push or pull ?" choice
+            if [ "$choice" == "push" ]; then
+                push
+            elif [ "$choice" == "pull" ]; then
+                pull
+            fi
         fi
-    fi
-    if [ "$COUNT_AHEAD" -gt "0" ] && [ "$COUNT_BEHIND" == "0" ]; then
-        if [ "$COUNT_UNTRACKED" == "0" ] || [ "$COUNT_DELETED" == "0" ] || [ "$COUNT_MODIFIES" == "0" ] ; then
-            echo "pull and import"
-            git reset --hard $main_branch   || error_exit "git reset failed"
-            git clean -df
-            joplin rmbook docs
-            joplin import $git_proj_path/docs --format md --notebook docs
+    else
+        if [ "$COUNT_BEHIND" == "0" ] && [ "$COUNT_AHEAD" == "0" ]; then
+            if [ "$COUNT_UNTRACKED" -gt "0" ] || [ "$COUNT_DELETED" -gt "0" ] || [ "$COUNT_MODIFIES" -gt "0" ]; then
+                push
+            fi
         fi
-    fi
-    if [ "$COUNT_BEHIND" -gt "0" ] && [ "$COUNT_AHEAD" == "0" ]; then
-        if [ "$COUNT_UNTRACKED" -gt "0" ] || [ "$COUNT_DELETED" -gt "0" ] || [ "$COUNT_MODIFIES" -gt "0" ] ; then
-            echo "local is behind but there are also some changes"
-            # todo 
-            #  reset to main
-            #  export docs-local
-            #  rsync ??
-            #  diff ??
-            #  patch ??
-            exit 1
+        if [ "$COUNT_AHEAD" -gt "0" ] && [ "$COUNT_BEHIND" == "0" ]; then
+            if [ "$COUNT_UNTRACKED" == "0" ] || [ "$COUNT_DELETED" == "0" ] || [ "$COUNT_MODIFIES" == "0" ]; then
+                pull
+            fi
         fi
-        echo "pull"
-        git reset --hard $main_branch   || error_exit "git reset failed"
-        git clean -df
-    fi
-    if [ "$COUNT_BEHIND" -gt "0" ] && [ "$COUNT_AHEAD" -gt "0" ]; then
-        echo "you are a clown :3"
+        if [ "$COUNT_BEHIND" -gt "0" ] && [ "$COUNT_AHEAD" == "0" ]; then
+            if [ "$COUNT_UNTRACKED" -gt "0" ] || [ "$COUNT_DELETED" -gt "0" ] || [ "$COUNT_MODIFIES" -gt "0" ]; then
+                echo "local is behind but there are also some changes"
+                # todo 
+                #  reset to main
+                #  export docs-local
+                #  rsync ??
+                #  diff ??
+                #  patch ??
+                exit 1
+            fi
+            pull
+        fi
+        if [ "$COUNT_BEHIND" -gt "0" ] && [ "$COUNT_AHEAD" -gt "0" ]; then
+            echo "you are a clown :3"
+        fi
     fi
 }
 
@@ -143,8 +160,8 @@ show_menu() {
 #
 
 if [ ! -d $git_proj_path ]; then
-	echo "cloning the docs from remote"
-	git clone https://github.com/$git_user_name/$git_project_name.git $default_proj_path || error_exit "git clone failed"
+    echo "cloning the docs from remote"
+    git clone https://github.com/$git_user_name/$git_project_name.git $default_proj_path || error_exit "git clone failed"
 fi
 
 cd $git_proj_path
@@ -155,6 +172,9 @@ git config --get remote.origin.url > /dev/null
 print_error_and_exit "origin does not exists"
 echo "fetching..."
 git fetch origin # do fetch but not pull
+echo "resetting..."
+git reset --hard $main_branch   || error_exit "git reset failed"
+git clean -df
 print_error_and_exit "git fetch not successful: check connection, or update origin url"
 check_if_current_branch_is_main
 
