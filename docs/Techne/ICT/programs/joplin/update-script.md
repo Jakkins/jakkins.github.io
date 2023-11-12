@@ -66,7 +66,7 @@ automatic_sync() {
     COUNT_BEHIND=$(echo $ahead_behind | grep -c '^>' ) # count
     echo "ahead $COUNT_AHEAD | behind $COUNT_BEHIND"
     echo "untracked $COUNT_UNTRACKED | deleted $COUNT_DELETED | modify $COUNT_MODIFIES"
-
+    
     if [ "$COUNT_BEHIND" == "0" ] && [ "$COUNT_AHEAD" == "0" ]; then
         if [ "$COUNT_UNTRACKED" == "0" ] && [ "$COUNT_DELETED" -gt "0" ] && [ "$COUNT_MODIFIES" == "0" ]; then
             read -ep  "only deletes, do you want to push or pull ?" choice
@@ -76,33 +76,30 @@ automatic_sync() {
                 pull
             fi
         fi
-    else
-        if [ "$COUNT_BEHIND" == "0" ] && [ "$COUNT_AHEAD" == "0" ]; then
-            if [ "$COUNT_UNTRACKED" -gt "0" ] || [ "$COUNT_DELETED" -gt "0" ] || [ "$COUNT_MODIFIES" -gt "0" ]; then
-                push
-            fi
+        if [ "$COUNT_UNTRACKED" -gt "0" ] || [ "$COUNT_DELETED" -gt "0" ] || [ "$COUNT_MODIFIES" -gt "0" ]; then
+            push
         fi
-        if [ "$COUNT_AHEAD" -gt "0" ] && [ "$COUNT_BEHIND" == "0" ]; then
-            if [ "$COUNT_UNTRACKED" == "0" ] || [ "$COUNT_DELETED" == "0" ] || [ "$COUNT_MODIFIES" == "0" ]; then
-                pull
-            fi
-        fi
-        if [ "$COUNT_BEHIND" -gt "0" ] && [ "$COUNT_AHEAD" == "0" ]; then
-            if [ "$COUNT_UNTRACKED" -gt "0" ] || [ "$COUNT_DELETED" -gt "0" ] || [ "$COUNT_MODIFIES" -gt "0" ]; then
-                echo "local is behind but there are also some changes"
-                # todo 
-                #  reset to main
-                #  export docs-local
-                #  rsync ??
-                #  diff ??
-                #  patch ??
-                exit 1
-            fi
+    fi
+    if [ "$COUNT_AHEAD" -gt "0" ] && [ "$COUNT_BEHIND" == "0" ]; then
+        if [ "$COUNT_UNTRACKED" == "0" ] || [ "$COUNT_DELETED" == "0" ] || [ "$COUNT_MODIFIES" == "0" ]; then
             pull
         fi
-        if [ "$COUNT_BEHIND" -gt "0" ] && [ "$COUNT_AHEAD" -gt "0" ]; then
-            echo "you are a clown :3"
+    fi
+    if [ "$COUNT_BEHIND" -gt "0" ] && [ "$COUNT_AHEAD" == "0" ]; then
+        if [ "$COUNT_UNTRACKED" -gt "0" ] || [ "$COUNT_DELETED" -gt "0" ] || [ "$COUNT_MODIFIES" -gt "0" ]; then
+            echo "local is behind but there are also some changes"
+            # todo 
+            #  reset to main
+            #  export docs-local
+            #  rsync ??
+            #  diff ??
+            #  patch ??
+            exit 1
         fi
+        pull
+    fi
+    if [ "$COUNT_BEHIND" -gt "0" ] && [ "$COUNT_AHEAD" -gt "0" ]; then
+        echo "you are a clown :3"
     fi
 }
 
@@ -193,5 +190,3 @@ else
     done
 fi
 ```
-
-
