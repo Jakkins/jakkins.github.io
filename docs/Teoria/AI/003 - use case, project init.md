@@ -13,11 +13,12 @@
 #### plugins
 
 - rust-analyzer extension or vscode-rust: provides code analysis and editing features
-    - code completition, code navigation, etc...
-    - when in doubt, try both
+	- code completition, code navigation, etc...
+	- when in doubt, try both
 - CodeLLDB extension: debugger
-- Rust Test Lens: for testing
-- Better TOML: syntax highlighting and validation for TOML files
+- [not maintained anymore] Rust Test Lens: for testing
+- [deprecated] Better TOML: syntax highlighting and validation for TOML files
+	- Even Better TOML
 
 ##### vscode-rust vs rust-analyzer
 
