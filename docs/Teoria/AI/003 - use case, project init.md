@@ -8,6 +8,17 @@
 
 ## init project and a first test
 
+### install rust
+
+> in windows use wsl 2
+
+```bash
+# https://rustup.rs/
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# rustup self uninstall
+cargo new --bin project_name
+```
+
 ### setup vscode
 
 #### plugins
@@ -16,7 +27,7 @@
 	- code completition, code navigation, etc...
 	- when in doubt, try both
 - CodeLLDB extension: debugger
-- [not maintained anymore] Rust Test Lens: for testing
+- [not maintained anymore, use rust-analyzer] Rust Test Lens: for testing
 - [deprecated] Better TOML: syntax highlighting and validation for TOML files
 	- Even Better TOML
 
