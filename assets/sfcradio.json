@@ -14,5 +14,13 @@
   {
     "url": "https://raw.githubusercontent.com/Jakkins/static.pages.api/main/sfcradio/ambient",
     "name": "ambient"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/Jakkins/static.pages.api/main/sfcradio/krautrock",
+    "name": "krautrock"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/Jakkins/static.pages.api/main/sfcradio/hh",
+    "name": "hh"
   }
 ]
