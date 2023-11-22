@@ -52,6 +52,32 @@ Both the "vscode-rust" plugin and the "rust-analyzer" extension are tools for Ru
 
 In summary, the "vscode-rust" plugin is a mature and widely used extension with a comprehensive set of features, while the "rust-analyzer" extension is a newer and more performant alternative that focuses on advanced code analysis and editing capabilities. Depending on your specific needs and preferences, you can choose the one that best suits your Rust development workflow in Visual Studio Code.
 
+#### project tree
+
+```txt
+.vscode
+	settings.json
+backend_frontend
+ia_engine
+	{rust_code}
+```
+
+This conf in settings.json is needed to allow rust-analyzer to see where is the position of rust's projects.
+
+```json
+{
+	"rust-analyzer.linkedProjects": [
+		".\\ia_engine\\Cargo.toml"
+	]
+}
+```
+
+
+
+
+
+
+
 
 
 
