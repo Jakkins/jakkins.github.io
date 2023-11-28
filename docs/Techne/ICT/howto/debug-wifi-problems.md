@@ -110,5 +110,13 @@ sudo nano /etc/iwd/main.conf
 
 You can use also just systemd-networkd and systemd-resolved.
 
+```bash
+sudo systemctl stop dhcpcd
+sudo systemctl disable dhcpcd
+sudo pacman -Rns dhcpcd
+
+sudo systemctl enable systemd-networkd
+sudo systemctl start systemd-networkd
+```
 
 
