@@ -84,6 +84,25 @@ systemctl list-unit-files --state=enabled
     - iwd + systemd-networkd + systemd-resolved
 ```
 
+# FAQ
 
+- Do I need NetworkManager?
 
+You don't really need network-manager. The default networking management for Arch is systemd-networkd.
+
+```bash
+sudo pacman -S iwd
+
+sudo systemctl stop NetworkManager
+sudo systemctl disable NetworkManager
+sudo pacman -Rns networkmanager
+sudo rm -rf /etc/NetworkManager
+sudo pacman -Rns wpa_supplicant
+
+sudo systemctl enable iwd
+sudo systemctl start iwd
+
+sudo nano /etc/iwd/main.conf
+# uncomment UseDefaultInterface=true
+```
 
