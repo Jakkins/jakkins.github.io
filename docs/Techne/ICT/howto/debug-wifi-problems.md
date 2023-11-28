@@ -106,3 +106,9 @@ sudo nano /etc/iwd/main.conf
 # uncomment UseDefaultInterface=true
 ```
 
+- Do I need dhcpcd?
+
+You can use also just systemd-networkd and systemd-resolved.
+
+
+
