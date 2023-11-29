@@ -117,6 +117,11 @@ sudo pacman -Rns dhcpcd
 
 sudo systemctl enable systemd-networkd
 sudo systemctl start systemd-networkd
+
+# enable dhcp with iwd
+sudo vim /etc/iwd/main.conf
+# [General]
+# EnableNetworkConfiguration=true
 ```
 
 
