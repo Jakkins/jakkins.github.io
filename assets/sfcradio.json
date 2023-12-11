@@ -26,5 +26,9 @@
   {
     "url": "https://raw.githubusercontent.com/Jakkins/static.pages.api/main/sfcradio/breakcore",
     "name": "breakcore"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/Jakkins/static.pages.api/main/sfcradio/dnb",
+    "name": "dnb"
   }
 ]
