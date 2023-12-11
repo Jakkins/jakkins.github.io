@@ -4,3 +4,5 @@
 
 ![RoadToShambala.jpg](../../_resources/RoadToShambala.jpg)
 
+![the-midnight-gospel-wallpaper.jpg](../../_resources/the-midnight-gospel-wallpaper.jpg)
+
