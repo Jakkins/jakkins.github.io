@@ -40,12 +40,26 @@ push() {
     git push --set-upstream origin $main_branch
 }
 
+reset() {
+	echo "resetting..."
+	git reset --hard $main_branch   || error_exit "git reset failed"
+	git clean -df
+}
+
 pull() {
+	reset
     echo "pull and import"
-    git reset --hard $main_branch   || error_exit "git reset failed"
-    git clean -df
+    git pull origin $main_branch --force
     joplin rmbook docs
     joplin import $git_proj_path/docs --format md --notebook docs
+}
+
+push_or_pull() {
+	if [ "$choice" == "push" ]; then
+		push
+	elif [ "$choice" == "pull" ]; then
+		pull
+	fi
 }
 
 automatic_sync() {
@@ -66,28 +80,31 @@ automatic_sync() {
     COUNT_BEHIND=$(echo $ahead_behind | grep -c '^>' ) # count
     echo "ahead $COUNT_AHEAD | behind $COUNT_BEHIND"
     echo "untracked $COUNT_UNTRACKED | deleted $COUNT_DELETED | modify $COUNT_MODIFIES"
-    
+
     if [ "$COUNT_BEHIND" == "0" ] && [ "$COUNT_AHEAD" == "0" ]; then
         if [ "$COUNT_UNTRACKED" == "0" ] && [ "$COUNT_DELETED" -gt "0" ] && [ "$COUNT_MODIFIES" == "0" ]; then
             read -ep  "only deletes, do you want to push or pull ?" choice
-            if [ "$choice" == "push" ]; then
-                push
-            elif [ "$choice" == "pull" ]; then
-                pull
-            fi
+            push_or_pull
         fi
         if [ "$COUNT_UNTRACKED" -gt "0" ] || [ "$COUNT_DELETED" -gt "0" ] || [ "$COUNT_MODIFIES" -gt "0" ]; then
             push
         fi
     fi
-    if [ "$COUNT_AHEAD" -gt "0" ] && [ "$COUNT_BEHIND" == "0" ]; then
+    if [ "$COUNT_BEHIND" -gt "0" ] && [ "$COUNT_AHEAD" == "0" ]; then
         if [ "$COUNT_UNTRACKED" == "0" ] || [ "$COUNT_DELETED" == "0" ] || [ "$COUNT_MODIFIES" == "0" ]; then
             pull
+        fi
+    fi
+	 if [ "$COUNT_BEHIND" == "0" ] && [ "$COUNT_AHEAD" -gt "0" ]; then
+        if [ "$COUNT_UNTRACKED" == "0" ] || [ "$COUNT_DELETED" == "0" ] || [ "$COUNT_MODIFIES" == "0" ]; then
+            push
         fi
     fi
     if [ "$COUNT_BEHIND" -gt "0" ] && [ "$COUNT_AHEAD" == "0" ]; then
         if [ "$COUNT_UNTRACKED" -gt "0" ] || [ "$COUNT_DELETED" -gt "0" ] || [ "$COUNT_MODIFIES" -gt "0" ]; then
             echo "local is behind but there are also some changes"
+			read -ep  "do you want to push or pull (ctrl+c to exit) ? " choice
+            push_or_pull
             # todo 
             #  reset to main
             #  export docs-local
@@ -100,6 +117,8 @@ automatic_sync() {
     fi
     if [ "$COUNT_BEHIND" -gt "0" ] && [ "$COUNT_AHEAD" -gt "0" ]; then
         echo "you are a clown :3"
+	else
+		echo "did nothing"
     fi
 }
 
@@ -169,9 +188,8 @@ git config --get remote.origin.url > /dev/null
 print_error_and_exit "origin does not exists"
 echo "fetching..."
 git fetch origin # do fetch but not pull
-echo "resetting..."
-git reset --hard $main_branch   || error_exit "git reset failed"
-git clean -df
+reset
+
 print_error_and_exit "git fetch not successful: check connection, or update origin url"
 check_if_current_branch_is_main
 
