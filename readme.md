@@ -1,7 +1,2 @@
-# [jakkins.github.io](https://jakkins.github.io)
+# daje
 
-## reminder to me
-
-```text
-_resources dir goes into the docs dir
-```
