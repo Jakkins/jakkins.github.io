@@ -1,4 +1,2 @@
-# daje
-
-<img src="./repodocs/imgs/pages-badge.svg">
+# <img src="./repodocs/imgs/pages-badge.svg">
 
