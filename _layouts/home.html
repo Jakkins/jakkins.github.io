@@ -1,2 +1,26 @@
-{{ content }}
-<p>Welcome to {{ site.title }}</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogghino con salsa e basilico</title>
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+</head>
+
+<body>
+    <ul>
+        {% for dir in site.data.directories %}
+        <li>{{ dir }}</li>
+        {% endfor %}
+    </ul>
+    <!--     <ul id="menu">
+        {% for thing in site.pages %}
+        <li>{{ thing.title }}</li>
+        {% endfor %}
+    </ul> -->
+    {{ content }}
+    <p>Welcome to {{ site.title }}</p>
+</body>
+
+</html>
