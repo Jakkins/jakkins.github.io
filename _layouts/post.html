@@ -1,0 +1,48 @@
+<!-- _layouts/post.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | site.name }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/post.css' | relative_url }}">
+</head>
+
+<body>
+    <header>
+        <h1>{{ site.name }}</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ '/' | relative_url }}">Home</a></li>
+                <li><a href="{{ '/about' | relative_url }}">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <header>
+                <h2>{{ page.title }}</h2>
+                <p><strong>{{ page.date | date: "%B %d, %Y" }}</strong></p>
+            </header>
+            <section>
+                {{ content }}
+            </section>
+            <section class="tags">
+                <h3>Tags:</h3>
+                <ul>
+                    {% for tag in page.tags %}
+                    <li><a href="{{ " /tags/" | append: tag | relative_url }}">{{ tag }}</a></li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; {{ site.time | date: "%Y" }} {{ site.name }}. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
