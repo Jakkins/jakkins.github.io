@@ -9,6 +9,16 @@
 </head>
 
 <body>
+    <ul>
+        {% for dir in site.data.directories %}
+        <li>{{ dir }}</li>
+        {% endfor %}
+    </ul>
+    <!--     <ul id="menu">
+        {% for thing in site.pages %}
+        <li>{{ thing.title }}</li>
+        {% endfor %}
+    </ul> -->
     {{ content }}
     <p>Welcome to {{ site.title }}</p>
 </body>
