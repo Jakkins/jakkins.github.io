@@ -20,6 +20,8 @@ _layouts dir is for custom theme
 
 ## good source
 
+- [why use github action](https://jekyllrb.com/docs/continuous-integration/github-actions/)
+    - [is so much better](https://jekyllrb.com/docs/continuous-integration/github-actions/#advantages-of-using-actions)
 - a lot of configuration can be seen in [jekyll.yml workflow](./workflow_example.md)
 - [how to create custom jekyll theme](https://talk.jekyllrb.com/t/i-want-to-make-my-own-theme-with-jekylll/6766/2)
 - [how to setup ruby in github actions](https://docs.github.com/en/actions/use-cases-and-examples/building-and-testing/building-and-testing-ruby)

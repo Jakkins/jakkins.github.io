@@ -26,8 +26,6 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 plugins:
   - jekyll-feed
 
-
-
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
@@ -44,16 +42,12 @@ exclude:
   - LICENSE
   - CONTRIBUTING.md
   - repodocs/
-  
-  # Build and cache directories
   - .sass-cache/
   - .jekyll-cache/
   - .cache/
   - build/
   - dist/
   - out/
-  
-  # Dependency directories
   - node_modules/
   - vendor/
     - bundle/
@@ -61,34 +55,22 @@ exclude:
     - gems/
     - ruby/
   - bower_components/
-  
-  # Ruby-specific files
   - Gemfile
   - Gemfile.lock
   - gemfiles/
-  
-  # Environment and configuration
   - .env
   - .env.*
   - .DS_Store
   - thumbs.db
-  
-  # IDE/Editor specific
   - .idea/
   - *.swp
   - .vscode/
-  
-  # Temporary files
   - *.tmp
   - *.bak
   - *.backup
   - tmp/
-  
-  # Log files
   - *.log
   - logs/
-  
-  # Test artifacts
   - coverage/
   - .nyc_output/
 
