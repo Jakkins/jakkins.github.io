@@ -75,14 +75,14 @@ exclude:
   
   # IDE/Editor specific
   - .idea/
-  - .vscode/
   - *.swp
+  - .vscode/
   
   # Temporary files
-  - tmp/
   - *.tmp
   - *.bak
   - *.backup
+  - tmp/
   
   # Log files
   - *.log
