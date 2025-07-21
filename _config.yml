@@ -26,9 +26,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 plugins:
   - jekyll-feed
 
-exclude:
-  - repodocs
-  - readme.md
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -38,15 +36,59 @@ exclude:
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
 #
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  # Documentation and meta files
+  - readme.md
+  - README.md
+  - CHANGELOG.md
+  - LICENSE
+  - CONTRIBUTING.md
+  - repodocs/
+  
+  # Build and cache directories
+  - .sass-cache/
+  - .jekyll-cache/
+  - .cache/
+  - build/
+  - dist/
+  - out/
+  
+  # Dependency directories
+  - node_modules/
+  - vendor/
+    - bundle/
+    - cache/
+    - gems/
+    - ruby/
+  - bower_components/
+  
+  # Ruby-specific files
+  - Gemfile
+  - Gemfile.lock
+  - gemfiles/
+  
+  # Environment and configuration
+  - .env
+  - .env.*
+  - .DS_Store
+  - thumbs.db
+  
+  # IDE/Editor specific
+  - .idea/
+  - .vscode/
+  - *.swp
+  
+  # Temporary files
+  - tmp/
+  - *.tmp
+  - *.bak
+  - *.backup
+  
+  # Log files
+  - *.log
+  - logs/
+  
+  # Test artifacts
+  - coverage/
+  - .nyc_output/
 
