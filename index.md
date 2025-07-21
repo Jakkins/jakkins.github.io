@@ -8,6 +8,22 @@ author: Jane Doe
 ---
 Hello {{ page.author }}
 
+[ayoo]({% link docs/ayoo.md %})
+[daje]({% link docs/ciao/daje.md %})
+
+<ul>
+{% for file in site.static_files %}
+  <li>
+    {{ file.path }} ({{ file.extname }})
+    {% if file.extname == ".md" %}
+      → <a href="{{ file.path | replace: '.md', '.html' }}">View</a>
+    {% else %}
+      → <a href="{{ file.path }}">Download</a>
+    {% endif %}
+  </li>
+{% endfor %}
+</ul>
+
 <div class="posts">
   {% for post in site.posts %}
     <article>
