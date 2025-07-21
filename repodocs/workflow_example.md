@@ -1,3 +1,11 @@
+# Jekyll Github Workflow Example
+
+```bash
+# path of workflow
+.github/workflows/jekyll.yml
+```
+
+```yml
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
@@ -72,3 +80,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+```
