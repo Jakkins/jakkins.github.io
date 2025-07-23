@@ -1,15 +1,39 @@
 # how to setup project
 
 ```bash
+#
+# debian
+# 1. https://github.com/rbenv/rbenv
+# 2. https://github.com/rbenv/ruby-build
+#
+sudo apt remove rbenv ruby-build
+git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+~/.rbenv/bin/rbenv init
+
+#
+# restart terminal
+#
+git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+
+sudo apt install libyaml-dev libssl-dev zlib1g-dev build-essential
+rbenv install -l
+rbenv install 3.4.5
+rbenv global 3.4.5 # set the default Ruby version for this machine
+
+gem install jekyll bundler
+
+#
 # https://jekyllrb.com/docs/installation/
 # on fedora
+#
 sudo dnf install ruby ruby-devel openssl-devel redhat-rpm-config gcc-c++ @development-tools
 gem install jekyll bundler
+
+# -----------------------------------------------
 bundle clean --force  # or `gem update`
 bundle install   # will use Gemfile to install some shit
-# bundle exec jekyll serve
 jekyll serve --livereload
-# bundle exec jekyll serve --livereload # if there’s a Gemfile
+bundle exec jekyll serve --livereload   # if there’s a Gemfile
 ```
 
 ## reminders
