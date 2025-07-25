@@ -1,0 +1,29 @@
+{%- assign current_dir = include.current_dir | default: '/docs/' -%}
+{%- assign indent_level = include.indent | default: 0 -%}
+{%- assign pages_in_dir = site.pages | where_exp: "page", "page.url contains current_dir" | sort: "url" -%}
+
+{% comment %} Calculate relative path depth {% endcomment %}
+{%- assign dir_parts = current_dir | split: '/' -%}
+{%- assign current_depth = dir_parts | size | minus: 2 -%}
+
+<ul class="menu-depth-{{ current_depth }}" style="margin-left: {{ indent_level }}px">
+	{%- for page in pages_in_dir -%}
+	{%- assign page_depth = page.url | split: '/' | size | minus: 2 -%}
+	{%- assign rel_path = page.url | remove_first: current_dir -%}
+
+	{% comment %} Only show immediate children of current directory {% endcomment %}
+	{%- if page_depth == current_depth | plus: 1 -%}
+	<li>
+		{%- if page.url.endswith == '/' -%}
+		📂 {{ page.title | default: rel_path | split: '/' | first | replace: '-', ' ' | capitalize }}
+		{% assign new_indent = indent_level | plus: 20 %}
+		{% include nested_menu.html current_dir=page.url indent=new_indent %}
+		{%- else -%}
+		📄 <a href="{{ page.url }}">
+			{{ page.title | default: rel_path | remove: '.html' | replace: '-', ' ' }}
+		</a>
+		{%- endif -%}
+	</li>
+	{%- endif -%}
+	{%- endfor -%}
+</ul>

@@ -1,4 +1,4 @@
-# setup ssh github 
+# setup ssh github
 
 ```bash
 ssh-keygen -t ed25519 -C "jak" -f ~/.ssh/id_ed25519_jak -N "" && cat ~/.ssh/id_ed25519_jak.pub

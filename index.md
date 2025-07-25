@@ -8,9 +8,6 @@ author: Jane Doe
 ---
 Hello {{ page.author }}
 
-[ayoo]({% link docs/ayoo.md %})
-[daje]({% link docs/ciao/daje.md %})
-
 <ul>
 {% for file in site.static_files %}
   <li>
@@ -22,6 +19,14 @@ Hello {{ page.author }}
     {% endif %}
   </li>
 {% endfor %}
+</ul>
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
 </ul>
 
 <div class="posts">

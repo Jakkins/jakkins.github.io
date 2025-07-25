@@ -1,3 +1,0 @@
-# daje
-
-wewe

@@ -34,6 +34,7 @@ bundle clean --force  # or `gem update`
 bundle install   # will use Gemfile to install some shit
 jekyll serve --livereload
 bundle exec jekyll serve --livereload   # if there’s a Gemfile
+rm -rf .jekyll-cache && bundle exec jekyll clean --force && bundle exec jekyll serve --livereload
 ```
 
 ## reminders
