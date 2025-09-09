@@ -1,3 +1,6 @@
+# working docusaurus task
+
+```yml
 name: Deploy Docusaurus to GitHub Pages
 
 on:
@@ -49,3 +52,5 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+```
