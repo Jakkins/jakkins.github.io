@@ -5,6 +5,12 @@ on:
     branches:
       - main  # deploy only when pushing to main branch
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
 
   # Build job
