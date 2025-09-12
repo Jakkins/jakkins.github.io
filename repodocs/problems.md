@@ -27,3 +27,12 @@ npm run docusaurus clear
 npm run build 
 npm run start
 ```
+
+## where the layout for blogs come from?
+
+- The layouts of docs and blogs are not in your repo by default. They’re shipped inside the theme package.
+- If you want to customize the component you need to run
+
+  ```bash
+  npx docusaurus swizzle @docusaurus/theme-classic BlogPostPage
+  ```
