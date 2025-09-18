@@ -7,7 +7,7 @@ import {
   Marker,
 } from "react-leaflet";
 import L, { PointTuple } from "leaflet";
-import Weather from "../components/weather";
+import BrowserOnly from '@docusaurus/BrowserOnly';
 
 let iconSize: PointTuple = [14, 20]; // width, height (smaller than default 41x41)
 let iconAnchor: PointTuple = [iconSize[0] / 2, iconSize[1]];
@@ -87,7 +87,14 @@ export default function MeteoPage() {
         </MapContainer>
       )}
 
-      <Weather coords={coords} />
+      <BrowserOnly>
+        {() => {
+          // This code will only run in the browser
+          const Weather = require('../components/weather').default;
+          return <Weather coords={coords} />
+        }}
+      </BrowserOnly>
+
     </div>
   );
 }
