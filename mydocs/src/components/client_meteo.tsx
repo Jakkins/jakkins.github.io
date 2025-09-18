@@ -1,21 +1,9 @@
-import React, { useEffect, useState } from "react";
-import Weather from "../components/weather";
+import React, { useState } from "react";
 
-export default function ClientMeteo({ iconSize, iconAnchor, popupAnchor, useMapEvents, L, Marker, MapContainer, TileLayer }) {
+export default function ClientMeteo({ useMapEvents, Marker, MapContainer, TileLayer }) {
   const [coords, setCoords] = useState(null);
   const [error, setError] = useState(null);
   const [mode, setMode] = useState(null); // "auto" or "manual"
-  const [pointerIcon, setPointerIcon] = useState(null);
-
-  useEffect(() => {
-    setPointerIcon(L.icon({
-      iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png", // default marker
-      iconSize: iconSize,
-      iconAnchor: iconAnchor, // point of the icon which will correspond to marker's location
-      popupAnchor: popupAnchor, // where popups open relative to icon
-    }))
-  }, []);
-
 
   function LocationMarker() {
     useMapEvents({
@@ -27,7 +15,7 @@ export default function ClientMeteo({ iconSize, iconAnchor, popupAnchor, useMapE
     // will show a marker in the map, if coords are valued
     if (coords) {
       console.log("Selected coordinates:", coords);
-      return <Marker position={[coords.lat, coords.lon]} icon={pointerIcon} />;
+      return <Marker position={[coords.lat, coords.lon]} />;
     }
 
     return null;
@@ -79,7 +67,6 @@ export default function ClientMeteo({ iconSize, iconAnchor, popupAnchor, useMapE
         </MapContainer>
       )}
 
-      <Weather coords={coords} />
     </div>
   );
 }
