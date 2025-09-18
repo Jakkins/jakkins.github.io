@@ -1,19 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {
-  MapContainer,
-  TileLayer,
-  useMap,
-  useMapEvents,
-  Marker,
-} from "react-leaflet";
-import L, { PointTuple } from "leaflet";
 import Weather from "../components/weather";
 
-let iconSize: PointTuple = [14, 20]; // width, height (smaller than default 41x41)
-let iconAnchor: PointTuple = [iconSize[0] / 2, iconSize[1]];
-let popupAnchor: PointTuple = [0, -iconSize[1]];
-
-export default function ClientMeteo() {
+export default function ClientMeteo({ iconSize, iconAnchor, popupAnchor, useMapEvents, L, Marker, MapContainer, TileLayer }) {
   const [coords, setCoords] = useState(null);
   const [error, setError] = useState(null);
   const [mode, setMode] = useState(null); // "auto" or "manual"
