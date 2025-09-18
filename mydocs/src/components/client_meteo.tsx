@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Weather from "../components/weather";
 
 export default function ClientMeteo({ useMapEvents, Marker, MapContainer, TileLayer }) {
   const [coords, setCoords] = useState(null);
@@ -67,6 +68,7 @@ export default function ClientMeteo({ useMapEvents, Marker, MapContainer, TileLa
         </MapContainer>
       )}
 
+      <Weather coords={coords} />
     </div>
   );
 }
