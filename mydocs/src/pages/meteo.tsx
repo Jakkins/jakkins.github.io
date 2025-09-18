@@ -1,73 +1,70 @@
 import React, { useEffect, useState } from "react";
+import {
+  MapContainer,
+  TileLayer,
+  useMap,
+  useMapEvents,
+  Marker,
+} from "react-leaflet";
+import L, { PointTuple } from "leaflet";
 import BrowserOnly from '@docusaurus/BrowserOnly';
+
+let iconSize: PointTuple = [14, 20]; // width, height (smaller than default 41x41)
+let iconAnchor: PointTuple = [iconSize[0] / 2, iconSize[1]];
+let popupAnchor: PointTuple = [0, -iconSize[1]];
+
+const smallIcon = L.icon({
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png", // default marker
+  iconSize: iconSize,
+  iconAnchor: iconAnchor, // point of the icon which will correspond to marker's location
+  popupAnchor: popupAnchor, // where popups open relative to icon
+});
 
 export default function MeteoPage() {
   const [coords, setCoords] = useState(null);
   const [error, setError] = useState(null);
   const [mode, setMode] = useState(null); // "auto" or "manual"
 
+  function LocationMarker() {
+    useMapEvents({
+      click(e) {
+        setCoords({ lat: e.latlng.lat, lon: e.latlng.lng });
+      },
+    });
+
+    // will show a marker in the map, if coords are valued
+    if (coords) {
+      console.log("Selected coordinates:", coords);
+      return <Marker position={[coords.lat, coords.lon]} icon={smallIcon} />;
+    }
+
+    return null;
+  }
+
+  const handleGetLocation = () => {
+    setMode("auto");
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setCoords({
+            lat: position.coords.latitude,
+            lon: position.coords.longitude,
+          });
+          setError(null);
+        },
+        (err) => setError(err.message)
+      );
+    } else {
+      setError("Geolocation not supported");
+    }
+  };
+
   return (
     <BrowserOnly>
       {() => {
-
         // This code will only run in the browser
         const Weather = require('../components/weather').default;
-
-        const {
-          MapContainer,
-          TileLayer,
-          useMap,
-          useMapEvents,
-          Marker,
-        } = require("react-leaflet").default;
         
-        const L = require("leaflet").default;
-
-        let iconSize = [14, 20]; // width, height (smaller than default 41x41)
-        let iconAnchor = [iconSize[0] / 2, iconSize[1]];
-        let popupAnchor = [0, -iconSize[1]];
-
-        const smallIcon = L.icon({
-          iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png", // default marker
-          iconSize: iconSize,
-          iconAnchor: iconAnchor, // point of the icon which will correspond to marker's location
-          popupAnchor: popupAnchor, // where popups open relative to icon
-        });
-
-        function LocationMarker() {
-          useMapEvents({
-            click(e) {
-              setCoords({ lat: e.latlng.lat, lon: e.latlng.lng });
-            },
-          });
-
-          // will show a marker in the map, if coords are valued
-          if (coords) {
-            console.log("Selected coordinates:", coords);
-            return <Marker position={[coords.lat, coords.lon]} icon={smallIcon} />;
-          }
-
-          return null;
-        }
-
-        const handleGetLocation = () => {
-          setMode("auto");
-          if ("geolocation" in navigator) {
-            navigator.geolocation.getCurrentPosition(
-              (position) => {
-                setCoords({
-                  lat: position.coords.latitude,
-                  lon: position.coords.longitude,
-                });
-                setError(null);
-              },
-              (err) => setError(err.message)
-            );
-          } else {
-            setError("Geolocation not supported");
-          }
-        };
-
         return <div style={{ padding: "2rem" }}>
           {error && <p>Error: {error}</p>}
 
@@ -98,7 +95,6 @@ export default function MeteoPage() {
           <Weather coords={coords} />
         </div>
       }}
-      
     </BrowserOnly>
   );
 }
