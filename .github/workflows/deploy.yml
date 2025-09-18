@@ -30,7 +30,9 @@ jobs:
         with:
           node-version: '20'
       - name: Install dependencies
-        run: npm ci
+        run: |
+          npm ci
+          npm i @openmeteo/sdk
       - name: Build website
         run: npm run build
       - name: Upload artifact
