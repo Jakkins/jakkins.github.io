@@ -2,8 +2,9 @@
 
 ```bash
 ls ~/.ssh
-ssh-keygen -t ecdsa -b 256 -C "jakkins"
-cat ~/.ssh/id_ed25519.pub
+# ssh-keygen -t ecdsa -b 256 -C "jakkins"
+ssh-keygen -t ed25519 -C "jakkins"
+cat ~/.ssh/id_ed25519_jakkins.pub
 # copy .pub key into github (https://github.com/settings/ssh/new)
 
 # create ssh config
@@ -14,9 +15,8 @@ nano ~/.ssh/config
 Host github.com
     HostName github.com
     User git
-    IdentityFile ~/.ssh/id_ed25519
+    IdentityFile ~/.ssh/id_ed25519_jakkins
     IdentitiesOnly yes
-    AddKeysToAgent yes
 ```
 
 ```bash
