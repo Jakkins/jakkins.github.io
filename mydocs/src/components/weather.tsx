@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { fetchWeatherApi } from "openmeteo";
 import { WeatherApiResponse } from "@openmeteo/sdk/weather-api-response";
+// import { useColorMode } from '@docusaurus/theme-common';
+
+const meteocss: React.CSSProperties = {
+  padding: "3px",
+  paddingLeft: "5px",
+  borderRadius: "10%"
+};
 
 export default function Weather({ coords }) {
   const [weather, setWeather] = useState<WeatherApiResponse | null>(null);
@@ -60,13 +67,16 @@ export default function Weather({ coords }) {
           rain.map((value, idx, arr) => {
             let hour = idx + 1 + ":00";
             let mmrain = value.toFixed(2);
-            let backgroundColor = "rgba(255, 255, 255, 0)"; // default bg color
-            let textColor = "#ffffffff"; // default text color
+
+            let backgroundColor = "rgba(0, 0, 0, 0)"; // default bg color is transparent
+            let textColor = "var(--text-color-meteo-card)"; // default text color
 
             if (value > 1.0) {
               backgroundColor = "#a0350bff"; // heavy rain
+              textColor = "#e2f1ffff";
             } else if (value > 0.5) {
               backgroundColor = "#3366ff"; // moderate rain
+              textColor = "#e2f1ffff";
             } else if (value > 0) {
               backgroundColor = "#99ccff"; // light rain
               textColor = "#003366"; // darker text for contrast
@@ -76,10 +86,9 @@ export default function Weather({ coords }) {
               <div
                 key={idx}
                 style={{
-                  padding: "3px",
+                  ...meteocss,
                   backgroundColor: backgroundColor,
-                  color: textColor,
-                  borderRadius: "10%",
+                  color: textColor
                 }}
               >
                 <div>{hour}</div>

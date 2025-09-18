@@ -18,6 +18,11 @@ nvm use 18.0.0
 
 npx create-docusaurus@latest mydocs classic
 
+cd mydocs
+npm i
+npm i --save docusaurus-lunr-search
+npm i --save @openmeteo/sdk 
+
 # starts the development server.
 npm start
 
